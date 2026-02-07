@@ -1,0 +1,15 @@
+@startuml
+start
+:Afficher "Entrez votre nom : ";
+:Lire nom;
+:Afficher "Bonjour " nom;
+:Afficher "Entrez votre âge : ";
+:LireEntier age;
+:Afficher "Vous avez " age " ans";
+if (age >= 18) then
+    :Afficher "Vous êtes majeur";
+else
+    :Afficher "Vous êtes mineur";
+endif
+stop
+@enduml

@@ -1,0 +1,11 @@
+@startuml
+start
+:Vérifier la température;
+:température <-- 25;
+if (température > 30) then
+  :Activer la climatisation;
+else
+  :Désactiver la climatisation;
+endif
+stop
+@enduml

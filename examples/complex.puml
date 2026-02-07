@@ -1,0 +1,12 @@
+@startuml
+start
+:Authentification de l'utilisateur;
+if (est_admin?) then
+  :Afficher le panneau de contrôle;
+  :Gérer les utilisateurs;
+else
+  :Afficher le tableau de bord;
+endif
+:Journaliser l'accès;
+stop
+@enduml

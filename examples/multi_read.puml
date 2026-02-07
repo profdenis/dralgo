@@ -1,0 +1,12 @@
+@startuml
+start
+:Lire x;
+:Afficher "Premier x: " x;
+:Lire x;
+:Afficher "Deuxième x: " x;
+:LireEntier y;
+:Afficher "Premier y: " y;
+:LireEntier y;
+:Afficher "Deuxième y: " y;
+stop
+@enduml

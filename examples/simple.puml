@@ -1,0 +1,8 @@
+@startuml
+start
+:Initialiser le système;
+:x <-- 5;
+:Charger la configuration;
+:Démarrer les services;
+stop
+@enduml

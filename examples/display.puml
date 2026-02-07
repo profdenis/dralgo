@@ -1,0 +1,9 @@
+@startuml
+start
+:x <-- 10;
+:Afficher "x = " x;
+:Afficher;
+:Afficher ;
+:Afficher Bonjour Allo x;
+stop
+@enduml
