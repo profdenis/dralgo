@@ -1,0 +1,12 @@
+@startuml
+start
+:x = 2 ** 10;
+if (x < 0) then (vrai)
+:Afficher "Négatif", x;
+(faux) elseif (x > 1_000_000) then (vrai)
+:Afficher "Trop grand";
+else (faux)
+:Afficher "Bien";
+endif
+stop
+@enduml

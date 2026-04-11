@@ -1,0 +1,10 @@
+Afficher "Entrez un nombre :"
+//x = Lire Entier
+Lire Entier x
+si x < 0 alors
+    Afficher "Négatif"
+sinon si x > 1_000_000 alors
+    Afficher "Trop grand"
+sinon
+    Afficher "Bien"
+fin si

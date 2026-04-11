@@ -1,0 +1,18 @@
+// 03_tant_que.algo
+// Test de la boucle Tant Que
+
+compteur = 5
+
+Tant Que compteur > 0
+    Afficher "Compte à rebours :", compteur
+    compteur = compteur - 1
+Fin Tant Que
+
+Afficher "Décollage !"
+
+// Test Fait ... Tant Que
+i = 0
+Fait
+    Afficher "i =", i
+    i++
+Tant Que i < 3

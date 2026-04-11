@@ -1,0 +1,13 @@
+// 04_pour.algo
+// Test des boucles Pour et Pour Chaque
+
+Afficher "Boucle Pour classique :"
+Pour i = 0; i < 5; i++
+    Afficher "Valeur de i :", i
+Fin Pour
+
+Afficher "Boucle Pour Chaque :"
+ma_liste = [10, 20, 30, 40]
+Pour Chaque element Dans ma_liste
+    Afficher "Element :", element
+Fin Pour

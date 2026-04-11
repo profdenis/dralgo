@@ -1,0 +1,15 @@
+// 05_entrees_sorties.algo
+// Test des instructions Lire et Afficher
+
+Afficher "Quel est votre nom ?"
+Lire nom
+
+Afficher "Quel est votre âge ?"
+Lire Entier age
+
+Afficher "Bonjour", nom, "!"
+si age >= 18 alors
+    Afficher "Vous êtes majeur."
+sinon
+    Afficher "Vous êtes mineur."
+fin si

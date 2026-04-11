@@ -51,3 +51,21 @@ This will:
   - `go test ./...` runs cleanly
 
 
+
+### Testing the Parser
+
+A test suite is available in `internal/antlr/antlr_test.go` to verify that the generated parser correctly handles the DrAlgo pseudo-code.
+
+To run the tests:
+
+```bash
+go test ./internal/antlr/...
+```
+
+This will run a series of test cases covering:
+- Basic assignments and expressions
+- Control structures (Si, Tant Que, Pour, etc.)
+- Nested blocks
+- Valid and invalid syntax
+
+Ensure the tests pass before proceeding to code generation changes.

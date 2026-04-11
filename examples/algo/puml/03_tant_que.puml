@@ -1,0 +1,17 @@
+@startuml
+start
+:compteur = 5;
+while (compteur > 0) is (vrai)
+:Afficher "Compte à rebours :", compteur;
+:compteur = compteur - 1;
+endwhile (faux)
+:Afficher "Décollage !";
+:i = 0;
+:Afficher "i =", i;
+:i++;
+while (i < 3) is (vrai)
+:Afficher "i =", i;
+:i++;
+endwhile (faux)
+stop
+@enduml

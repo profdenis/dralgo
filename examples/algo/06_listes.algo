@@ -1,0 +1,16 @@
+// 06_listes.algo
+// Test des listes et opérations de base
+
+ma_liste = [1, 2, 3, [4, 5], "texte"]
+Afficher "Ma liste :", ma_liste
+
+vide = []
+Afficher "Liste vide :", vide
+
+// On peut utiliser Pour Chaque sur une liste littérale
+somme = 0
+Pour Chaque n Dans [1, 2, 3, 4, 5]
+    somme = somme + n
+Fin Pour
+
+Afficher "Somme de 1 à 5 :", somme

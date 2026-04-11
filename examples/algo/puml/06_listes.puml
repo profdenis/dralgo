@@ -1,0 +1,13 @@
+@startuml
+start
+:ma_liste = [1, 2, 3, [4, 5], "texte"];
+:Afficher "Ma liste :", ma_liste;
+:vide = [];
+:Afficher "Liste vide :", vide;
+:somme = 0;
+while ([1, 2, 3, 4, 5]) is (vrai)
+:somme = somme + n;
+endwhile (faux)
+:Afficher "Somme de 1 à 5 :", somme;
+stop
+@enduml

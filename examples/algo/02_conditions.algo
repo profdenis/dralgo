@@ -1,0 +1,19 @@
+// 02_conditions.algo
+// Test des structures de contrôle Si / Sinon Si / Sinon
+
+score = 85
+
+si score >= 90 alors
+    Afficher "Excellent"
+sinon si score >= 70 alors
+    Afficher "Très bien"
+sinon si score >= 50 alors
+    Afficher "Passable"
+sinon
+    Afficher "Échec"
+fin si
+
+x = -5
+si x < 0 alors
+    Afficher "x est négatif"
+fin si

@@ -1,0 +1,15 @@
+@startuml
+start
+:Afficher "Boucle Pour classique :";
+:i = 0;
+while (i < 5) is (vrai)
+:Afficher "Valeur de i :", i;
+:i++;
+endwhile (faux)
+:Afficher "Boucle Pour Chaque :";
+:ma_liste = [10, 20, 30, 40];
+while (ma_liste) is (vrai)
+:Afficher "Element :", element;
+endwhile (faux)
+stop
+@enduml

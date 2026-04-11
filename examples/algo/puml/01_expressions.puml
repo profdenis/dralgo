@@ -1,0 +1,16 @@
+@startuml
+start
+:a = 10;
+:b = 3;
+:c = a + b * 2;
+:d = a + b * 2;
+:e = a ** b;
+:f = a % b;
+:Afficher "a =", a;
+:Afficher "b =", b;
+:Afficher "a + b * 2 =", c;
+:Afficher "(a + b) * 2 =", d;
+:Afficher "a ** b =", e;
+:Afficher "a % b =", f;
+stop
+@enduml

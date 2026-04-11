@@ -1,0 +1,7 @@
+x = 0
+fait
+    x++
+    si x % 2 == 0 alors
+        Afficher x, "est pair"
+    fin si
+tant que x < 10
