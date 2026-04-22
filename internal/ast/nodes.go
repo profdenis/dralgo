@@ -97,36 +97,6 @@ type WhileStmt struct {
 func (WhileStmt) isStmt()         {}
 func (s WhileStmt) GetSpan() Span { return s.Span }
 
-type DoWhileStmt struct {
-	Body []Stmt
-	Cond Expr
-	Span Span
-}
-
-func (DoWhileStmt) isStmt()         {}
-func (s DoWhileStmt) GetSpan() Span { return s.Span }
-
-type ForStmt struct {
-	Init Stmt // nil or AssignStmt
-	Cond Expr // nil allowed by grammar
-	Post Stmt // nil or AssignStmt/IncDecStmt
-	Body []Stmt
-	Span Span
-}
-
-func (ForStmt) isStmt()         {}
-func (s ForStmt) GetSpan() Span { return s.Span }
-
-type ForEachStmt struct {
-	Var  string
-	Iter Expr
-	Body []Stmt
-	Span Span
-}
-
-func (ForEachStmt) isStmt()         {}
-func (s ForEachStmt) GetSpan() Span { return s.Span }
-
 // ----- Expressions -----
 
 type Expr interface {

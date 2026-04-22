@@ -1,4 +1,4 @@
-// Code generated from /home/denis/projets/profdenis/dralgo/grammar/dralgo/DrAlgo.g4 by ANTLR 4.13.2. DO NOT EDIT.
+// Code generated from /home/denis/projets/profdenis/dralgo/grammar/dralgo/DrAlgo.g4 by ANTLR 4.13.1. DO NOT EDIT.
 
 package antlr // DrAlgo
 import (
@@ -32,160 +32,128 @@ var DrAlgoParserStaticData struct {
 func dralgoParserInit() {
 	staticData := &DrAlgoParserStaticData
 	staticData.LiteralNames = []string{
-		"", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "'++'",
-		"'--'", "'**'", "'*'", "'/'", "'%'", "'+'", "'-'", "'<='", "'>='", "'<'",
-		"'>'", "'=='", "'!='", "'='", "'('", "')'", "'['", "']'", "','", "';'",
+		"", "", "", "", "", "", "", "", "", "", "", "'++'", "'--'", "'**'",
+		"'*'", "'/'", "'%'", "'+'", "'-'", "'<='", "'>='", "'<'", "'>'", "'=='",
+		"'!='", "'='", "'('", "')'", "'['", "']'", "','", "';'",
 	}
 	staticData.SymbolicNames = []string{
-		"", "SI", "SINON", "ALORS", "FAIT", "POUR", "DANS", "AFFICHER", "LIRE",
-		"LIRE_ENTIER", "SINON_SI", "FIN_SI", "TANT_QUE", "FIN_TANT_QUE", "POUR_CHAQUE",
-		"FIN_POUR", "INCR", "DECR", "POW", "MUL", "DIV", "MOD", "PLUS", "MINUS",
-		"LTE", "GTE", "LT", "GT", "EQ", "NEQ", "ASSIGN", "LPAREN", "RPAREN",
-		"LBRACK", "RBRACK", "COMMA", "SEMI", "IDENT", "FLOAT", "INT", "STRING",
-		"LINE_COMMENT", "NEWLINE", "WS",
+		"", "SI", "SINON", "ALORS", "AFFICHER", "LIRE", "LIRE_ENTIER", "SINON_SI",
+		"FIN_SI", "TANT_QUE", "FIN_TANT_QUE", "INCR", "DECR", "POW", "MUL",
+		"DIV", "MOD", "PLUS", "MINUS", "LTE", "GTE", "LT", "GT", "EQ", "NEQ",
+		"ASSIGN", "LPAREN", "RPAREN", "LBRACK", "RBRACK", "COMMA", "SEMI", "IDENT",
+		"FLOAT", "INT", "STRING", "LINE_COMMENT", "NEWLINE", "WS",
 	}
 	staticData.RuleNames = []string{
 		"program", "stmtList", "stmt", "assignStmt", "incDecStmt", "printStmt",
 		"printArgs", "readStmt", "readIntStmt", "ifStmt", "elseIfPart", "elsePart",
-		"whileStmt", "doWhileStmt", "forStmt", "forInit", "forCond", "forPost",
-		"forEachStmt", "block", "sep", "expr", "equality", "comparison", "addition",
+		"whileStmt", "block", "sep", "expr", "equality", "comparison", "addition",
 		"multiplication", "power", "unary", "primary", "listLiteral", "literal",
 	}
 	staticData.PredictionContextCache = antlr.NewPredictionContextCache()
 	staticData.serializedATN = []int32{
-		4, 1, 43, 304, 2, 0, 7, 0, 2, 1, 7, 1, 2, 2, 7, 2, 2, 3, 7, 3, 2, 4, 7,
+		4, 1, 38, 239, 2, 0, 7, 0, 2, 1, 7, 1, 2, 2, 7, 2, 2, 3, 7, 3, 2, 4, 7,
 		4, 2, 5, 7, 5, 2, 6, 7, 6, 2, 7, 7, 7, 2, 8, 7, 8, 2, 9, 7, 9, 2, 10, 7,
 		10, 2, 11, 7, 11, 2, 12, 7, 12, 2, 13, 7, 13, 2, 14, 7, 14, 2, 15, 7, 15,
 		2, 16, 7, 16, 2, 17, 7, 17, 2, 18, 7, 18, 2, 19, 7, 19, 2, 20, 7, 20, 2,
-		21, 7, 21, 2, 22, 7, 22, 2, 23, 7, 23, 2, 24, 7, 24, 2, 25, 7, 25, 2, 26,
-		7, 26, 2, 27, 7, 27, 2, 28, 7, 28, 2, 29, 7, 29, 2, 30, 7, 30, 1, 0, 5,
-		0, 64, 8, 0, 10, 0, 12, 0, 67, 9, 0, 1, 0, 3, 0, 70, 8, 0, 1, 0, 1, 0,
-		1, 1, 1, 1, 4, 1, 76, 8, 1, 11, 1, 12, 1, 77, 1, 1, 1, 1, 5, 1, 82, 8,
-		1, 10, 1, 12, 1, 85, 9, 1, 1, 1, 5, 1, 88, 8, 1, 10, 1, 12, 1, 91, 9, 1,
-		1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 3, 2, 103,
-		8, 2, 1, 3, 1, 3, 1, 3, 1, 3, 1, 4, 1, 4, 1, 4, 1, 5, 1, 5, 3, 5, 114,
-		8, 5, 1, 6, 1, 6, 1, 6, 5, 6, 119, 8, 6, 10, 6, 12, 6, 122, 9, 6, 1, 7,
-		1, 7, 1, 7, 1, 8, 1, 8, 1, 8, 1, 9, 1, 9, 1, 9, 3, 9, 133, 8, 9, 1, 9,
-		4, 9, 136, 8, 9, 11, 9, 12, 9, 137, 1, 9, 1, 9, 5, 9, 142, 8, 9, 10, 9,
-		12, 9, 145, 9, 9, 1, 9, 3, 9, 148, 8, 9, 1, 9, 1, 9, 1, 10, 1, 10, 1, 10,
-		3, 10, 155, 8, 10, 1, 10, 4, 10, 158, 8, 10, 11, 10, 12, 10, 159, 1, 10,
-		1, 10, 1, 11, 1, 11, 4, 11, 166, 8, 11, 11, 11, 12, 11, 167, 1, 11, 1,
-		11, 1, 12, 1, 12, 1, 12, 4, 12, 175, 8, 12, 11, 12, 12, 12, 176, 1, 12,
-		1, 12, 1, 12, 1, 13, 1, 13, 4, 13, 184, 8, 13, 11, 13, 12, 13, 185, 1,
-		13, 1, 13, 1, 13, 1, 13, 1, 14, 1, 14, 3, 14, 194, 8, 14, 1, 14, 1, 14,
-		3, 14, 198, 8, 14, 1, 14, 1, 14, 3, 14, 202, 8, 14, 1, 14, 4, 14, 205,
-		8, 14, 11, 14, 12, 14, 206, 1, 14, 1, 14, 1, 14, 1, 15, 1, 15, 1, 16, 1,
-		16, 1, 17, 1, 17, 3, 17, 218, 8, 17, 1, 18, 1, 18, 1, 18, 1, 18, 1, 18,
-		4, 18, 225, 8, 18, 11, 18, 12, 18, 226, 1, 18, 1, 18, 1, 18, 1, 19, 1,
-		19, 1, 20, 1, 20, 1, 21, 1, 21, 1, 22, 1, 22, 1, 22, 5, 22, 241, 8, 22,
-		10, 22, 12, 22, 244, 9, 22, 1, 23, 1, 23, 1, 23, 5, 23, 249, 8, 23, 10,
-		23, 12, 23, 252, 9, 23, 1, 24, 1, 24, 1, 24, 5, 24, 257, 8, 24, 10, 24,
-		12, 24, 260, 9, 24, 1, 25, 1, 25, 1, 25, 5, 25, 265, 8, 25, 10, 25, 12,
-		25, 268, 9, 25, 1, 26, 1, 26, 1, 26, 3, 26, 273, 8, 26, 1, 27, 1, 27, 1,
-		27, 3, 27, 278, 8, 27, 1, 28, 1, 28, 1, 28, 1, 28, 1, 28, 1, 28, 1, 28,
-		3, 28, 287, 8, 28, 1, 29, 1, 29, 1, 29, 1, 29, 5, 29, 293, 8, 29, 10, 29,
-		12, 29, 296, 9, 29, 3, 29, 298, 8, 29, 1, 29, 1, 29, 1, 30, 1, 30, 1, 30,
-		0, 0, 31, 0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32,
-		34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 0, 6, 1, 0, 16,
-		17, 1, 0, 28, 29, 1, 0, 24, 27, 1, 0, 22, 23, 1, 0, 19, 21, 1, 0, 38, 40,
-		314, 0, 65, 1, 0, 0, 0, 2, 73, 1, 0, 0, 0, 4, 102, 1, 0, 0, 0, 6, 104,
-		1, 0, 0, 0, 8, 108, 1, 0, 0, 0, 10, 111, 1, 0, 0, 0, 12, 115, 1, 0, 0,
-		0, 14, 123, 1, 0, 0, 0, 16, 126, 1, 0, 0, 0, 18, 129, 1, 0, 0, 0, 20, 151,
-		1, 0, 0, 0, 22, 163, 1, 0, 0, 0, 24, 171, 1, 0, 0, 0, 26, 181, 1, 0, 0,
-		0, 28, 191, 1, 0, 0, 0, 30, 211, 1, 0, 0, 0, 32, 213, 1, 0, 0, 0, 34, 217,
-		1, 0, 0, 0, 36, 219, 1, 0, 0, 0, 38, 231, 1, 0, 0, 0, 40, 233, 1, 0, 0,
-		0, 42, 235, 1, 0, 0, 0, 44, 237, 1, 0, 0, 0, 46, 245, 1, 0, 0, 0, 48, 253,
-		1, 0, 0, 0, 50, 261, 1, 0, 0, 0, 52, 269, 1, 0, 0, 0, 54, 277, 1, 0, 0,
-		0, 56, 286, 1, 0, 0, 0, 58, 288, 1, 0, 0, 0, 60, 301, 1, 0, 0, 0, 62, 64,
-		3, 40, 20, 0, 63, 62, 1, 0, 0, 0, 64, 67, 1, 0, 0, 0, 65, 63, 1, 0, 0,
-		0, 65, 66, 1, 0, 0, 0, 66, 69, 1, 0, 0, 0, 67, 65, 1, 0, 0, 0, 68, 70,
-		3, 2, 1, 0, 69, 68, 1, 0, 0, 0, 69, 70, 1, 0, 0, 0, 70, 71, 1, 0, 0, 0,
-		71, 72, 5, 0, 0, 1, 72, 1, 1, 0, 0, 0, 73, 83, 3, 4, 2, 0, 74, 76, 3, 40,
-		20, 0, 75, 74, 1, 0, 0, 0, 76, 77, 1, 0, 0, 0, 77, 75, 1, 0, 0, 0, 77,
-		78, 1, 0, 0, 0, 78, 79, 1, 0, 0, 0, 79, 80, 3, 4, 2, 0, 80, 82, 1, 0, 0,
-		0, 81, 75, 1, 0, 0, 0, 82, 85, 1, 0, 0, 0, 83, 81, 1, 0, 0, 0, 83, 84,
-		1, 0, 0, 0, 84, 89, 1, 0, 0, 0, 85, 83, 1, 0, 0, 0, 86, 88, 3, 40, 20,
-		0, 87, 86, 1, 0, 0, 0, 88, 91, 1, 0, 0, 0, 89, 87, 1, 0, 0, 0, 89, 90,
-		1, 0, 0, 0, 90, 3, 1, 0, 0, 0, 91, 89, 1, 0, 0, 0, 92, 103, 3, 6, 3, 0,
-		93, 103, 3, 8, 4, 0, 94, 103, 3, 10, 5, 0, 95, 103, 3, 14, 7, 0, 96, 103,
-		3, 16, 8, 0, 97, 103, 3, 18, 9, 0, 98, 103, 3, 24, 12, 0, 99, 103, 3, 26,
-		13, 0, 100, 103, 3, 28, 14, 0, 101, 103, 3, 36, 18, 0, 102, 92, 1, 0, 0,
-		0, 102, 93, 1, 0, 0, 0, 102, 94, 1, 0, 0, 0, 102, 95, 1, 0, 0, 0, 102,
-		96, 1, 0, 0, 0, 102, 97, 1, 0, 0, 0, 102, 98, 1, 0, 0, 0, 102, 99, 1, 0,
-		0, 0, 102, 100, 1, 0, 0, 0, 102, 101, 1, 0, 0, 0, 103, 5, 1, 0, 0, 0, 104,
-		105, 5, 37, 0, 0, 105, 106, 5, 30, 0, 0, 106, 107, 3, 42, 21, 0, 107, 7,
-		1, 0, 0, 0, 108, 109, 5, 37, 0, 0, 109, 110, 7, 0, 0, 0, 110, 9, 1, 0,
-		0, 0, 111, 113, 5, 7, 0, 0, 112, 114, 3, 12, 6, 0, 113, 112, 1, 0, 0, 0,
-		113, 114, 1, 0, 0, 0, 114, 11, 1, 0, 0, 0, 115, 120, 3, 42, 21, 0, 116,
-		117, 5, 35, 0, 0, 117, 119, 3, 42, 21, 0, 118, 116, 1, 0, 0, 0, 119, 122,
-		1, 0, 0, 0, 120, 118, 1, 0, 0, 0, 120, 121, 1, 0, 0, 0, 121, 13, 1, 0,
-		0, 0, 122, 120, 1, 0, 0, 0, 123, 124, 5, 8, 0, 0, 124, 125, 5, 37, 0, 0,
-		125, 15, 1, 0, 0, 0, 126, 127, 5, 9, 0, 0, 127, 128, 5, 37, 0, 0, 128,
-		17, 1, 0, 0, 0, 129, 130, 5, 1, 0, 0, 130, 132, 3, 42, 21, 0, 131, 133,
-		5, 3, 0, 0, 132, 131, 1, 0, 0, 0, 132, 133, 1, 0, 0, 0, 133, 135, 1, 0,
-		0, 0, 134, 136, 3, 40, 20, 0, 135, 134, 1, 0, 0, 0, 136, 137, 1, 0, 0,
-		0, 137, 135, 1, 0, 0, 0, 137, 138, 1, 0, 0, 0, 138, 139, 1, 0, 0, 0, 139,
-		143, 3, 38, 19, 0, 140, 142, 3, 20, 10, 0, 141, 140, 1, 0, 0, 0, 142, 145,
-		1, 0, 0, 0, 143, 141, 1, 0, 0, 0, 143, 144, 1, 0, 0, 0, 144, 147, 1, 0,
-		0, 0, 145, 143, 1, 0, 0, 0, 146, 148, 3, 22, 11, 0, 147, 146, 1, 0, 0,
-		0, 147, 148, 1, 0, 0, 0, 148, 149, 1, 0, 0, 0, 149, 150, 5, 11, 0, 0, 150,
-		19, 1, 0, 0, 0, 151, 152, 5, 10, 0, 0, 152, 154, 3, 42, 21, 0, 153, 155,
-		5, 3, 0, 0, 154, 153, 1, 0, 0, 0, 154, 155, 1, 0, 0, 0, 155, 157, 1, 0,
-		0, 0, 156, 158, 3, 40, 20, 0, 157, 156, 1, 0, 0, 0, 158, 159, 1, 0, 0,
-		0, 159, 157, 1, 0, 0, 0, 159, 160, 1, 0, 0, 0, 160, 161, 1, 0, 0, 0, 161,
-		162, 3, 38, 19, 0, 162, 21, 1, 0, 0, 0, 163, 165, 5, 2, 0, 0, 164, 166,
-		3, 40, 20, 0, 165, 164, 1, 0, 0, 0, 166, 167, 1, 0, 0, 0, 167, 165, 1,
-		0, 0, 0, 167, 168, 1, 0, 0, 0, 168, 169, 1, 0, 0, 0, 169, 170, 3, 38, 19,
-		0, 170, 23, 1, 0, 0, 0, 171, 172, 5, 12, 0, 0, 172, 174, 3, 42, 21, 0,
-		173, 175, 3, 40, 20, 0, 174, 173, 1, 0, 0, 0, 175, 176, 1, 0, 0, 0, 176,
-		174, 1, 0, 0, 0, 176, 177, 1, 0, 0, 0, 177, 178, 1, 0, 0, 0, 178, 179,
-		3, 38, 19, 0, 179, 180, 5, 13, 0, 0, 180, 25, 1, 0, 0, 0, 181, 183, 5,
-		4, 0, 0, 182, 184, 3, 40, 20, 0, 183, 182, 1, 0, 0, 0, 184, 185, 1, 0,
-		0, 0, 185, 183, 1, 0, 0, 0, 185, 186, 1, 0, 0, 0, 186, 187, 1, 0, 0, 0,
-		187, 188, 3, 38, 19, 0, 188, 189, 5, 12, 0, 0, 189, 190, 3, 42, 21, 0,
-		190, 27, 1, 0, 0, 0, 191, 193, 5, 5, 0, 0, 192, 194, 3, 30, 15, 0, 193,
-		192, 1, 0, 0, 0, 193, 194, 1, 0, 0, 0, 194, 195, 1, 0, 0, 0, 195, 197,
-		5, 36, 0, 0, 196, 198, 3, 32, 16, 0, 197, 196, 1, 0, 0, 0, 197, 198, 1,
-		0, 0, 0, 198, 199, 1, 0, 0, 0, 199, 201, 5, 36, 0, 0, 200, 202, 3, 34,
-		17, 0, 201, 200, 1, 0, 0, 0, 201, 202, 1, 0, 0, 0, 202, 204, 1, 0, 0, 0,
-		203, 205, 3, 40, 20, 0, 204, 203, 1, 0, 0, 0, 205, 206, 1, 0, 0, 0, 206,
-		204, 1, 0, 0, 0, 206, 207, 1, 0, 0, 0, 207, 208, 1, 0, 0, 0, 208, 209,
-		3, 38, 19, 0, 209, 210, 5, 15, 0, 0, 210, 29, 1, 0, 0, 0, 211, 212, 3,
-		6, 3, 0, 212, 31, 1, 0, 0, 0, 213, 214, 3, 42, 21, 0, 214, 33, 1, 0, 0,
-		0, 215, 218, 3, 8, 4, 0, 216, 218, 3, 6, 3, 0, 217, 215, 1, 0, 0, 0, 217,
-		216, 1, 0, 0, 0, 218, 35, 1, 0, 0, 0, 219, 220, 5, 14, 0, 0, 220, 221,
-		5, 37, 0, 0, 221, 222, 5, 6, 0, 0, 222, 224, 3, 42, 21, 0, 223, 225, 3,
-		40, 20, 0, 224, 223, 1, 0, 0, 0, 225, 226, 1, 0, 0, 0, 226, 224, 1, 0,
-		0, 0, 226, 227, 1, 0, 0, 0, 227, 228, 1, 0, 0, 0, 228, 229, 3, 38, 19,
-		0, 229, 230, 5, 15, 0, 0, 230, 37, 1, 0, 0, 0, 231, 232, 3, 2, 1, 0, 232,
-		39, 1, 0, 0, 0, 233, 234, 5, 42, 0, 0, 234, 41, 1, 0, 0, 0, 235, 236, 3,
-		44, 22, 0, 236, 43, 1, 0, 0, 0, 237, 242, 3, 46, 23, 0, 238, 239, 7, 1,
-		0, 0, 239, 241, 3, 46, 23, 0, 240, 238, 1, 0, 0, 0, 241, 244, 1, 0, 0,
-		0, 242, 240, 1, 0, 0, 0, 242, 243, 1, 0, 0, 0, 243, 45, 1, 0, 0, 0, 244,
-		242, 1, 0, 0, 0, 245, 250, 3, 48, 24, 0, 246, 247, 7, 2, 0, 0, 247, 249,
-		3, 48, 24, 0, 248, 246, 1, 0, 0, 0, 249, 252, 1, 0, 0, 0, 250, 248, 1,
-		0, 0, 0, 250, 251, 1, 0, 0, 0, 251, 47, 1, 0, 0, 0, 252, 250, 1, 0, 0,
-		0, 253, 258, 3, 50, 25, 0, 254, 255, 7, 3, 0, 0, 255, 257, 3, 50, 25, 0,
-		256, 254, 1, 0, 0, 0, 257, 260, 1, 0, 0, 0, 258, 256, 1, 0, 0, 0, 258,
-		259, 1, 0, 0, 0, 259, 49, 1, 0, 0, 0, 260, 258, 1, 0, 0, 0, 261, 266, 3,
-		52, 26, 0, 262, 263, 7, 4, 0, 0, 263, 265, 3, 52, 26, 0, 264, 262, 1, 0,
-		0, 0, 265, 268, 1, 0, 0, 0, 266, 264, 1, 0, 0, 0, 266, 267, 1, 0, 0, 0,
-		267, 51, 1, 0, 0, 0, 268, 266, 1, 0, 0, 0, 269, 272, 3, 54, 27, 0, 270,
-		271, 5, 18, 0, 0, 271, 273, 3, 52, 26, 0, 272, 270, 1, 0, 0, 0, 272, 273,
-		1, 0, 0, 0, 273, 53, 1, 0, 0, 0, 274, 275, 7, 3, 0, 0, 275, 278, 3, 54,
-		27, 0, 276, 278, 3, 56, 28, 0, 277, 274, 1, 0, 0, 0, 277, 276, 1, 0, 0,
-		0, 278, 55, 1, 0, 0, 0, 279, 287, 3, 58, 29, 0, 280, 287, 3, 60, 30, 0,
-		281, 287, 5, 37, 0, 0, 282, 283, 5, 31, 0, 0, 283, 284, 3, 42, 21, 0, 284,
-		285, 5, 32, 0, 0, 285, 287, 1, 0, 0, 0, 286, 279, 1, 0, 0, 0, 286, 280,
-		1, 0, 0, 0, 286, 281, 1, 0, 0, 0, 286, 282, 1, 0, 0, 0, 287, 57, 1, 0,
-		0, 0, 288, 297, 5, 33, 0, 0, 289, 294, 3, 42, 21, 0, 290, 291, 5, 35, 0,
-		0, 291, 293, 3, 42, 21, 0, 292, 290, 1, 0, 0, 0, 293, 296, 1, 0, 0, 0,
-		294, 292, 1, 0, 0, 0, 294, 295, 1, 0, 0, 0, 295, 298, 1, 0, 0, 0, 296,
-		294, 1, 0, 0, 0, 297, 289, 1, 0, 0, 0, 297, 298, 1, 0, 0, 0, 298, 299,
-		1, 0, 0, 0, 299, 300, 5, 34, 0, 0, 300, 59, 1, 0, 0, 0, 301, 302, 7, 5,
-		0, 0, 302, 61, 1, 0, 0, 0, 32, 65, 69, 77, 83, 89, 102, 113, 120, 132,
-		137, 143, 147, 154, 159, 167, 176, 185, 193, 197, 201, 206, 217, 226, 242,
-		250, 258, 266, 272, 277, 286, 294, 297,
+		21, 7, 21, 2, 22, 7, 22, 2, 23, 7, 23, 2, 24, 7, 24, 1, 0, 5, 0, 52, 8,
+		0, 10, 0, 12, 0, 55, 9, 0, 1, 0, 3, 0, 58, 8, 0, 1, 0, 1, 0, 1, 1, 1, 1,
+		4, 1, 64, 8, 1, 11, 1, 12, 1, 65, 1, 1, 1, 1, 5, 1, 70, 8, 1, 10, 1, 12,
+		1, 73, 9, 1, 1, 1, 5, 1, 76, 8, 1, 10, 1, 12, 1, 79, 9, 1, 1, 2, 1, 2,
+		1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 3, 2, 88, 8, 2, 1, 3, 1, 3, 1, 3, 1, 3, 1,
+		4, 1, 4, 1, 4, 1, 5, 1, 5, 3, 5, 99, 8, 5, 1, 6, 1, 6, 1, 6, 5, 6, 104,
+		8, 6, 10, 6, 12, 6, 107, 9, 6, 1, 7, 1, 7, 1, 7, 1, 8, 1, 8, 1, 8, 1, 9,
+		1, 9, 1, 9, 3, 9, 118, 8, 9, 1, 9, 4, 9, 121, 8, 9, 11, 9, 12, 9, 122,
+		1, 9, 1, 9, 5, 9, 127, 8, 9, 10, 9, 12, 9, 130, 9, 9, 1, 9, 3, 9, 133,
+		8, 9, 1, 9, 1, 9, 1, 10, 1, 10, 1, 10, 3, 10, 140, 8, 10, 1, 10, 4, 10,
+		143, 8, 10, 11, 10, 12, 10, 144, 1, 10, 1, 10, 1, 11, 1, 11, 4, 11, 151,
+		8, 11, 11, 11, 12, 11, 152, 1, 11, 1, 11, 1, 12, 1, 12, 1, 12, 4, 12, 160,
+		8, 12, 11, 12, 12, 12, 161, 1, 12, 1, 12, 1, 12, 1, 13, 1, 13, 1, 14, 1,
+		14, 1, 15, 1, 15, 1, 16, 1, 16, 1, 16, 5, 16, 176, 8, 16, 10, 16, 12, 16,
+		179, 9, 16, 1, 17, 1, 17, 1, 17, 5, 17, 184, 8, 17, 10, 17, 12, 17, 187,
+		9, 17, 1, 18, 1, 18, 1, 18, 5, 18, 192, 8, 18, 10, 18, 12, 18, 195, 9,
+		18, 1, 19, 1, 19, 1, 19, 5, 19, 200, 8, 19, 10, 19, 12, 19, 203, 9, 19,
+		1, 20, 1, 20, 1, 20, 3, 20, 208, 8, 20, 1, 21, 1, 21, 1, 21, 3, 21, 213,
+		8, 21, 1, 22, 1, 22, 1, 22, 1, 22, 1, 22, 1, 22, 1, 22, 3, 22, 222, 8,
+		22, 1, 23, 1, 23, 1, 23, 1, 23, 5, 23, 228, 8, 23, 10, 23, 12, 23, 231,
+		9, 23, 3, 23, 233, 8, 23, 1, 23, 1, 23, 1, 24, 1, 24, 1, 24, 0, 0, 25,
+		0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36,
+		38, 40, 42, 44, 46, 48, 0, 6, 1, 0, 11, 12, 1, 0, 23, 24, 1, 0, 19, 22,
+		1, 0, 17, 18, 1, 0, 14, 16, 1, 0, 33, 35, 245, 0, 53, 1, 0, 0, 0, 2, 61,
+		1, 0, 0, 0, 4, 87, 1, 0, 0, 0, 6, 89, 1, 0, 0, 0, 8, 93, 1, 0, 0, 0, 10,
+		96, 1, 0, 0, 0, 12, 100, 1, 0, 0, 0, 14, 108, 1, 0, 0, 0, 16, 111, 1, 0,
+		0, 0, 18, 114, 1, 0, 0, 0, 20, 136, 1, 0, 0, 0, 22, 148, 1, 0, 0, 0, 24,
+		156, 1, 0, 0, 0, 26, 166, 1, 0, 0, 0, 28, 168, 1, 0, 0, 0, 30, 170, 1,
+		0, 0, 0, 32, 172, 1, 0, 0, 0, 34, 180, 1, 0, 0, 0, 36, 188, 1, 0, 0, 0,
+		38, 196, 1, 0, 0, 0, 40, 204, 1, 0, 0, 0, 42, 212, 1, 0, 0, 0, 44, 221,
+		1, 0, 0, 0, 46, 223, 1, 0, 0, 0, 48, 236, 1, 0, 0, 0, 50, 52, 3, 28, 14,
+		0, 51, 50, 1, 0, 0, 0, 52, 55, 1, 0, 0, 0, 53, 51, 1, 0, 0, 0, 53, 54,
+		1, 0, 0, 0, 54, 57, 1, 0, 0, 0, 55, 53, 1, 0, 0, 0, 56, 58, 3, 2, 1, 0,
+		57, 56, 1, 0, 0, 0, 57, 58, 1, 0, 0, 0, 58, 59, 1, 0, 0, 0, 59, 60, 5,
+		0, 0, 1, 60, 1, 1, 0, 0, 0, 61, 71, 3, 4, 2, 0, 62, 64, 3, 28, 14, 0, 63,
+		62, 1, 0, 0, 0, 64, 65, 1, 0, 0, 0, 65, 63, 1, 0, 0, 0, 65, 66, 1, 0, 0,
+		0, 66, 67, 1, 0, 0, 0, 67, 68, 3, 4, 2, 0, 68, 70, 1, 0, 0, 0, 69, 63,
+		1, 0, 0, 0, 70, 73, 1, 0, 0, 0, 71, 69, 1, 0, 0, 0, 71, 72, 1, 0, 0, 0,
+		72, 77, 1, 0, 0, 0, 73, 71, 1, 0, 0, 0, 74, 76, 3, 28, 14, 0, 75, 74, 1,
+		0, 0, 0, 76, 79, 1, 0, 0, 0, 77, 75, 1, 0, 0, 0, 77, 78, 1, 0, 0, 0, 78,
+		3, 1, 0, 0, 0, 79, 77, 1, 0, 0, 0, 80, 88, 3, 6, 3, 0, 81, 88, 3, 8, 4,
+		0, 82, 88, 3, 10, 5, 0, 83, 88, 3, 14, 7, 0, 84, 88, 3, 16, 8, 0, 85, 88,
+		3, 18, 9, 0, 86, 88, 3, 24, 12, 0, 87, 80, 1, 0, 0, 0, 87, 81, 1, 0, 0,
+		0, 87, 82, 1, 0, 0, 0, 87, 83, 1, 0, 0, 0, 87, 84, 1, 0, 0, 0, 87, 85,
+		1, 0, 0, 0, 87, 86, 1, 0, 0, 0, 88, 5, 1, 0, 0, 0, 89, 90, 5, 32, 0, 0,
+		90, 91, 5, 25, 0, 0, 91, 92, 3, 30, 15, 0, 92, 7, 1, 0, 0, 0, 93, 94, 5,
+		32, 0, 0, 94, 95, 7, 0, 0, 0, 95, 9, 1, 0, 0, 0, 96, 98, 5, 4, 0, 0, 97,
+		99, 3, 12, 6, 0, 98, 97, 1, 0, 0, 0, 98, 99, 1, 0, 0, 0, 99, 11, 1, 0,
+		0, 0, 100, 105, 3, 30, 15, 0, 101, 102, 5, 30, 0, 0, 102, 104, 3, 30, 15,
+		0, 103, 101, 1, 0, 0, 0, 104, 107, 1, 0, 0, 0, 105, 103, 1, 0, 0, 0, 105,
+		106, 1, 0, 0, 0, 106, 13, 1, 0, 0, 0, 107, 105, 1, 0, 0, 0, 108, 109, 5,
+		5, 0, 0, 109, 110, 5, 32, 0, 0, 110, 15, 1, 0, 0, 0, 111, 112, 5, 6, 0,
+		0, 112, 113, 5, 32, 0, 0, 113, 17, 1, 0, 0, 0, 114, 115, 5, 1, 0, 0, 115,
+		117, 3, 30, 15, 0, 116, 118, 5, 3, 0, 0, 117, 116, 1, 0, 0, 0, 117, 118,
+		1, 0, 0, 0, 118, 120, 1, 0, 0, 0, 119, 121, 3, 28, 14, 0, 120, 119, 1,
+		0, 0, 0, 121, 122, 1, 0, 0, 0, 122, 120, 1, 0, 0, 0, 122, 123, 1, 0, 0,
+		0, 123, 124, 1, 0, 0, 0, 124, 128, 3, 26, 13, 0, 125, 127, 3, 20, 10, 0,
+		126, 125, 1, 0, 0, 0, 127, 130, 1, 0, 0, 0, 128, 126, 1, 0, 0, 0, 128,
+		129, 1, 0, 0, 0, 129, 132, 1, 0, 0, 0, 130, 128, 1, 0, 0, 0, 131, 133,
+		3, 22, 11, 0, 132, 131, 1, 0, 0, 0, 132, 133, 1, 0, 0, 0, 133, 134, 1,
+		0, 0, 0, 134, 135, 5, 8, 0, 0, 135, 19, 1, 0, 0, 0, 136, 137, 5, 7, 0,
+		0, 137, 139, 3, 30, 15, 0, 138, 140, 5, 3, 0, 0, 139, 138, 1, 0, 0, 0,
+		139, 140, 1, 0, 0, 0, 140, 142, 1, 0, 0, 0, 141, 143, 3, 28, 14, 0, 142,
+		141, 1, 0, 0, 0, 143, 144, 1, 0, 0, 0, 144, 142, 1, 0, 0, 0, 144, 145,
+		1, 0, 0, 0, 145, 146, 1, 0, 0, 0, 146, 147, 3, 26, 13, 0, 147, 21, 1, 0,
+		0, 0, 148, 150, 5, 2, 0, 0, 149, 151, 3, 28, 14, 0, 150, 149, 1, 0, 0,
+		0, 151, 152, 1, 0, 0, 0, 152, 150, 1, 0, 0, 0, 152, 153, 1, 0, 0, 0, 153,
+		154, 1, 0, 0, 0, 154, 155, 3, 26, 13, 0, 155, 23, 1, 0, 0, 0, 156, 157,
+		5, 9, 0, 0, 157, 159, 3, 30, 15, 0, 158, 160, 3, 28, 14, 0, 159, 158, 1,
+		0, 0, 0, 160, 161, 1, 0, 0, 0, 161, 159, 1, 0, 0, 0, 161, 162, 1, 0, 0,
+		0, 162, 163, 1, 0, 0, 0, 163, 164, 3, 26, 13, 0, 164, 165, 5, 10, 0, 0,
+		165, 25, 1, 0, 0, 0, 166, 167, 3, 2, 1, 0, 167, 27, 1, 0, 0, 0, 168, 169,
+		5, 37, 0, 0, 169, 29, 1, 0, 0, 0, 170, 171, 3, 32, 16, 0, 171, 31, 1, 0,
+		0, 0, 172, 177, 3, 34, 17, 0, 173, 174, 7, 1, 0, 0, 174, 176, 3, 34, 17,
+		0, 175, 173, 1, 0, 0, 0, 176, 179, 1, 0, 0, 0, 177, 175, 1, 0, 0, 0, 177,
+		178, 1, 0, 0, 0, 178, 33, 1, 0, 0, 0, 179, 177, 1, 0, 0, 0, 180, 185, 3,
+		36, 18, 0, 181, 182, 7, 2, 0, 0, 182, 184, 3, 36, 18, 0, 183, 181, 1, 0,
+		0, 0, 184, 187, 1, 0, 0, 0, 185, 183, 1, 0, 0, 0, 185, 186, 1, 0, 0, 0,
+		186, 35, 1, 0, 0, 0, 187, 185, 1, 0, 0, 0, 188, 193, 3, 38, 19, 0, 189,
+		190, 7, 3, 0, 0, 190, 192, 3, 38, 19, 0, 191, 189, 1, 0, 0, 0, 192, 195,
+		1, 0, 0, 0, 193, 191, 1, 0, 0, 0, 193, 194, 1, 0, 0, 0, 194, 37, 1, 0,
+		0, 0, 195, 193, 1, 0, 0, 0, 196, 201, 3, 40, 20, 0, 197, 198, 7, 4, 0,
+		0, 198, 200, 3, 40, 20, 0, 199, 197, 1, 0, 0, 0, 200, 203, 1, 0, 0, 0,
+		201, 199, 1, 0, 0, 0, 201, 202, 1, 0, 0, 0, 202, 39, 1, 0, 0, 0, 203, 201,
+		1, 0, 0, 0, 204, 207, 3, 42, 21, 0, 205, 206, 5, 13, 0, 0, 206, 208, 3,
+		40, 20, 0, 207, 205, 1, 0, 0, 0, 207, 208, 1, 0, 0, 0, 208, 41, 1, 0, 0,
+		0, 209, 210, 7, 3, 0, 0, 210, 213, 3, 42, 21, 0, 211, 213, 3, 44, 22, 0,
+		212, 209, 1, 0, 0, 0, 212, 211, 1, 0, 0, 0, 213, 43, 1, 0, 0, 0, 214, 222,
+		3, 46, 23, 0, 215, 222, 3, 48, 24, 0, 216, 222, 5, 32, 0, 0, 217, 218,
+		5, 26, 0, 0, 218, 219, 3, 30, 15, 0, 219, 220, 5, 27, 0, 0, 220, 222, 1,
+		0, 0, 0, 221, 214, 1, 0, 0, 0, 221, 215, 1, 0, 0, 0, 221, 216, 1, 0, 0,
+		0, 221, 217, 1, 0, 0, 0, 222, 45, 1, 0, 0, 0, 223, 232, 5, 28, 0, 0, 224,
+		229, 3, 30, 15, 0, 225, 226, 5, 30, 0, 0, 226, 228, 3, 30, 15, 0, 227,
+		225, 1, 0, 0, 0, 228, 231, 1, 0, 0, 0, 229, 227, 1, 0, 0, 0, 229, 230,
+		1, 0, 0, 0, 230, 233, 1, 0, 0, 0, 231, 229, 1, 0, 0, 0, 232, 224, 1, 0,
+		0, 0, 232, 233, 1, 0, 0, 0, 233, 234, 1, 0, 0, 0, 234, 235, 5, 29, 0, 0,
+		235, 47, 1, 0, 0, 0, 236, 237, 7, 5, 0, 0, 237, 49, 1, 0, 0, 0, 25, 53,
+		57, 65, 71, 77, 87, 98, 105, 117, 122, 128, 132, 139, 144, 152, 161, 177,
+		185, 193, 201, 207, 212, 221, 229, 232,
 	}
 	deserializer := antlr.NewATNDeserializer(nil)
 	staticData.atn = deserializer.Deserialize(staticData.serializedATN)
@@ -227,46 +195,41 @@ const (
 	DrAlgoParserSI           = 1
 	DrAlgoParserSINON        = 2
 	DrAlgoParserALORS        = 3
-	DrAlgoParserFAIT         = 4
-	DrAlgoParserPOUR         = 5
-	DrAlgoParserDANS         = 6
-	DrAlgoParserAFFICHER     = 7
-	DrAlgoParserLIRE         = 8
-	DrAlgoParserLIRE_ENTIER  = 9
-	DrAlgoParserSINON_SI     = 10
-	DrAlgoParserFIN_SI       = 11
-	DrAlgoParserTANT_QUE     = 12
-	DrAlgoParserFIN_TANT_QUE = 13
-	DrAlgoParserPOUR_CHAQUE  = 14
-	DrAlgoParserFIN_POUR     = 15
-	DrAlgoParserINCR         = 16
-	DrAlgoParserDECR         = 17
-	DrAlgoParserPOW          = 18
-	DrAlgoParserMUL          = 19
-	DrAlgoParserDIV          = 20
-	DrAlgoParserMOD          = 21
-	DrAlgoParserPLUS         = 22
-	DrAlgoParserMINUS        = 23
-	DrAlgoParserLTE          = 24
-	DrAlgoParserGTE          = 25
-	DrAlgoParserLT           = 26
-	DrAlgoParserGT           = 27
-	DrAlgoParserEQ           = 28
-	DrAlgoParserNEQ          = 29
-	DrAlgoParserASSIGN       = 30
-	DrAlgoParserLPAREN       = 31
-	DrAlgoParserRPAREN       = 32
-	DrAlgoParserLBRACK       = 33
-	DrAlgoParserRBRACK       = 34
-	DrAlgoParserCOMMA        = 35
-	DrAlgoParserSEMI         = 36
-	DrAlgoParserIDENT        = 37
-	DrAlgoParserFLOAT        = 38
-	DrAlgoParserINT          = 39
-	DrAlgoParserSTRING       = 40
-	DrAlgoParserLINE_COMMENT = 41
-	DrAlgoParserNEWLINE      = 42
-	DrAlgoParserWS           = 43
+	DrAlgoParserAFFICHER     = 4
+	DrAlgoParserLIRE         = 5
+	DrAlgoParserLIRE_ENTIER  = 6
+	DrAlgoParserSINON_SI     = 7
+	DrAlgoParserFIN_SI       = 8
+	DrAlgoParserTANT_QUE     = 9
+	DrAlgoParserFIN_TANT_QUE = 10
+	DrAlgoParserINCR         = 11
+	DrAlgoParserDECR         = 12
+	DrAlgoParserPOW          = 13
+	DrAlgoParserMUL          = 14
+	DrAlgoParserDIV          = 15
+	DrAlgoParserMOD          = 16
+	DrAlgoParserPLUS         = 17
+	DrAlgoParserMINUS        = 18
+	DrAlgoParserLTE          = 19
+	DrAlgoParserGTE          = 20
+	DrAlgoParserLT           = 21
+	DrAlgoParserGT           = 22
+	DrAlgoParserEQ           = 23
+	DrAlgoParserNEQ          = 24
+	DrAlgoParserASSIGN       = 25
+	DrAlgoParserLPAREN       = 26
+	DrAlgoParserRPAREN       = 27
+	DrAlgoParserLBRACK       = 28
+	DrAlgoParserRBRACK       = 29
+	DrAlgoParserCOMMA        = 30
+	DrAlgoParserSEMI         = 31
+	DrAlgoParserIDENT        = 32
+	DrAlgoParserFLOAT        = 33
+	DrAlgoParserINT          = 34
+	DrAlgoParserSTRING       = 35
+	DrAlgoParserLINE_COMMENT = 36
+	DrAlgoParserNEWLINE      = 37
+	DrAlgoParserWS           = 38
 )
 
 // DrAlgoParser rules.
@@ -284,24 +247,18 @@ const (
 	DrAlgoParserRULE_elseIfPart     = 10
 	DrAlgoParserRULE_elsePart       = 11
 	DrAlgoParserRULE_whileStmt      = 12
-	DrAlgoParserRULE_doWhileStmt    = 13
-	DrAlgoParserRULE_forStmt        = 14
-	DrAlgoParserRULE_forInit        = 15
-	DrAlgoParserRULE_forCond        = 16
-	DrAlgoParserRULE_forPost        = 17
-	DrAlgoParserRULE_forEachStmt    = 18
-	DrAlgoParserRULE_block          = 19
-	DrAlgoParserRULE_sep            = 20
-	DrAlgoParserRULE_expr           = 21
-	DrAlgoParserRULE_equality       = 22
-	DrAlgoParserRULE_comparison     = 23
-	DrAlgoParserRULE_addition       = 24
-	DrAlgoParserRULE_multiplication = 25
-	DrAlgoParserRULE_power          = 26
-	DrAlgoParserRULE_unary          = 27
-	DrAlgoParserRULE_primary        = 28
-	DrAlgoParserRULE_listLiteral    = 29
-	DrAlgoParserRULE_literal        = 30
+	DrAlgoParserRULE_block          = 13
+	DrAlgoParserRULE_sep            = 14
+	DrAlgoParserRULE_expr           = 15
+	DrAlgoParserRULE_equality       = 16
+	DrAlgoParserRULE_comparison     = 17
+	DrAlgoParserRULE_addition       = 18
+	DrAlgoParserRULE_multiplication = 19
+	DrAlgoParserRULE_power          = 20
+	DrAlgoParserRULE_unary          = 21
+	DrAlgoParserRULE_primary        = 22
+	DrAlgoParserRULE_listLiteral    = 23
+	DrAlgoParserRULE_literal        = 24
 )
 
 // IProgramContext is an interface to support dynamic dispatch.
@@ -438,7 +395,7 @@ func (p *DrAlgoParser) Program() (localctx IProgramContext) {
 	var _la int
 
 	p.EnterOuterAlt(localctx, 1)
-	p.SetState(65)
+	p.SetState(53)
 	p.GetErrorHandler().Sync(p)
 	if p.HasError() {
 		goto errorExit
@@ -447,33 +404,33 @@ func (p *DrAlgoParser) Program() (localctx IProgramContext) {
 
 	for _la == DrAlgoParserNEWLINE {
 		{
-			p.SetState(62)
+			p.SetState(50)
 			p.Sep()
 		}
 
-		p.SetState(67)
+		p.SetState(55)
 		p.GetErrorHandler().Sync(p)
 		if p.HasError() {
 			goto errorExit
 		}
 		_la = p.GetTokenStream().LA(1)
 	}
-	p.SetState(69)
+	p.SetState(57)
 	p.GetErrorHandler().Sync(p)
 	if p.HasError() {
 		goto errorExit
 	}
 	_la = p.GetTokenStream().LA(1)
 
-	if (int64(_la) & ^0x3f) == 0 && ((int64(1)<<_la)&137438974898) != 0 {
+	if (int64(_la) & ^0x3f) == 0 && ((int64(1)<<_la)&4294967922) != 0 {
 		{
-			p.SetState(68)
+			p.SetState(56)
 			p.StmtList()
 		}
 
 	}
 	{
-		p.SetState(71)
+		p.SetState(59)
 		p.Match(DrAlgoParserEOF)
 		if p.HasError() {
 			// Recognition error - abort rule
@@ -652,10 +609,10 @@ func (p *DrAlgoParser) StmtList() (localctx IStmtListContext) {
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(73)
+		p.SetState(61)
 		p.Stmt()
 	}
-	p.SetState(83)
+	p.SetState(71)
 	p.GetErrorHandler().Sync(p)
 	if p.HasError() {
 		goto errorExit
@@ -666,7 +623,7 @@ func (p *DrAlgoParser) StmtList() (localctx IStmtListContext) {
 	}
 	for _alt != 2 && _alt != antlr.ATNInvalidAltNumber {
 		if _alt == 1 {
-			p.SetState(75)
+			p.SetState(63)
 			p.GetErrorHandler().Sync(p)
 			if p.HasError() {
 				goto errorExit
@@ -675,11 +632,11 @@ func (p *DrAlgoParser) StmtList() (localctx IStmtListContext) {
 
 			for ok := true; ok; ok = _la == DrAlgoParserNEWLINE {
 				{
-					p.SetState(74)
+					p.SetState(62)
 					p.Sep()
 				}
 
-				p.SetState(77)
+				p.SetState(65)
 				p.GetErrorHandler().Sync(p)
 				if p.HasError() {
 					goto errorExit
@@ -687,12 +644,12 @@ func (p *DrAlgoParser) StmtList() (localctx IStmtListContext) {
 				_la = p.GetTokenStream().LA(1)
 			}
 			{
-				p.SetState(79)
+				p.SetState(67)
 				p.Stmt()
 			}
 
 		}
-		p.SetState(85)
+		p.SetState(73)
 		p.GetErrorHandler().Sync(p)
 		if p.HasError() {
 			goto errorExit
@@ -702,7 +659,7 @@ func (p *DrAlgoParser) StmtList() (localctx IStmtListContext) {
 			goto errorExit
 		}
 	}
-	p.SetState(89)
+	p.SetState(77)
 	p.GetErrorHandler().Sync(p)
 	if p.HasError() {
 		goto errorExit
@@ -711,11 +668,11 @@ func (p *DrAlgoParser) StmtList() (localctx IStmtListContext) {
 
 	for _la == DrAlgoParserNEWLINE {
 		{
-			p.SetState(86)
+			p.SetState(74)
 			p.Sep()
 		}
 
-		p.SetState(91)
+		p.SetState(79)
 		p.GetErrorHandler().Sync(p)
 		if p.HasError() {
 			goto errorExit
@@ -751,9 +708,6 @@ type IStmtContext interface {
 	ReadIntStmt() IReadIntStmtContext
 	IfStmt() IIfStmtContext
 	WhileStmt() IWhileStmtContext
-	DoWhileStmt() IDoWhileStmtContext
-	ForStmt() IForStmtContext
-	ForEachStmt() IForEachStmtContext
 
 	// IsStmtContext differentiates from other interfaces.
 	IsStmtContext()
@@ -903,54 +857,6 @@ func (s *StmtContext) WhileStmt() IWhileStmtContext {
 	return t.(IWhileStmtContext)
 }
 
-func (s *StmtContext) DoWhileStmt() IDoWhileStmtContext {
-	var t antlr.RuleContext
-	for _, ctx := range s.GetChildren() {
-		if _, ok := ctx.(IDoWhileStmtContext); ok {
-			t = ctx.(antlr.RuleContext)
-			break
-		}
-	}
-
-	if t == nil {
-		return nil
-	}
-
-	return t.(IDoWhileStmtContext)
-}
-
-func (s *StmtContext) ForStmt() IForStmtContext {
-	var t antlr.RuleContext
-	for _, ctx := range s.GetChildren() {
-		if _, ok := ctx.(IForStmtContext); ok {
-			t = ctx.(antlr.RuleContext)
-			break
-		}
-	}
-
-	if t == nil {
-		return nil
-	}
-
-	return t.(IForStmtContext)
-}
-
-func (s *StmtContext) ForEachStmt() IForEachStmtContext {
-	var t antlr.RuleContext
-	for _, ctx := range s.GetChildren() {
-		if _, ok := ctx.(IForEachStmtContext); ok {
-			t = ctx.(antlr.RuleContext)
-			break
-		}
-	}
-
-	if t == nil {
-		return nil
-	}
-
-	return t.(IForEachStmtContext)
-}
-
 func (s *StmtContext) GetRuleContext() antlr.RuleContext {
 	return s
 }
@@ -972,7 +878,7 @@ func (s *StmtContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
 func (p *DrAlgoParser) Stmt() (localctx IStmtContext) {
 	localctx = NewStmtContext(p, p.GetParserRuleContext(), p.GetState())
 	p.EnterRule(localctx, 4, DrAlgoParserRULE_stmt)
-	p.SetState(102)
+	p.SetState(87)
 	p.GetErrorHandler().Sync(p)
 	if p.HasError() {
 		goto errorExit
@@ -982,71 +888,50 @@ func (p *DrAlgoParser) Stmt() (localctx IStmtContext) {
 	case 1:
 		p.EnterOuterAlt(localctx, 1)
 		{
-			p.SetState(92)
+			p.SetState(80)
 			p.AssignStmt()
 		}
 
 	case 2:
 		p.EnterOuterAlt(localctx, 2)
 		{
-			p.SetState(93)
+			p.SetState(81)
 			p.IncDecStmt()
 		}
 
 	case 3:
 		p.EnterOuterAlt(localctx, 3)
 		{
-			p.SetState(94)
+			p.SetState(82)
 			p.PrintStmt()
 		}
 
 	case 4:
 		p.EnterOuterAlt(localctx, 4)
 		{
-			p.SetState(95)
+			p.SetState(83)
 			p.ReadStmt()
 		}
 
 	case 5:
 		p.EnterOuterAlt(localctx, 5)
 		{
-			p.SetState(96)
+			p.SetState(84)
 			p.ReadIntStmt()
 		}
 
 	case 6:
 		p.EnterOuterAlt(localctx, 6)
 		{
-			p.SetState(97)
+			p.SetState(85)
 			p.IfStmt()
 		}
 
 	case 7:
 		p.EnterOuterAlt(localctx, 7)
 		{
-			p.SetState(98)
+			p.SetState(86)
 			p.WhileStmt()
-		}
-
-	case 8:
-		p.EnterOuterAlt(localctx, 8)
-		{
-			p.SetState(99)
-			p.DoWhileStmt()
-		}
-
-	case 9:
-		p.EnterOuterAlt(localctx, 9)
-		{
-			p.SetState(100)
-			p.ForStmt()
-		}
-
-	case 10:
-		p.EnterOuterAlt(localctx, 10)
-		{
-			p.SetState(101)
-			p.ForEachStmt()
 		}
 
 	case antlr.ATNInvalidAltNumber:
@@ -1161,7 +1046,7 @@ func (p *DrAlgoParser) AssignStmt() (localctx IAssignStmtContext) {
 	p.EnterRule(localctx, 6, DrAlgoParserRULE_assignStmt)
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(104)
+		p.SetState(89)
 		p.Match(DrAlgoParserIDENT)
 		if p.HasError() {
 			// Recognition error - abort rule
@@ -1169,7 +1054,7 @@ func (p *DrAlgoParser) AssignStmt() (localctx IAssignStmtContext) {
 		}
 	}
 	{
-		p.SetState(105)
+		p.SetState(90)
 		p.Match(DrAlgoParserASSIGN)
 		if p.HasError() {
 			// Recognition error - abort rule
@@ -1177,7 +1062,7 @@ func (p *DrAlgoParser) AssignStmt() (localctx IAssignStmtContext) {
 		}
 	}
 	{
-		p.SetState(106)
+		p.SetState(91)
 		p.Expr()
 	}
 
@@ -1279,7 +1164,7 @@ func (p *DrAlgoParser) IncDecStmt() (localctx IIncDecStmtContext) {
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(108)
+		p.SetState(93)
 		p.Match(DrAlgoParserIDENT)
 		if p.HasError() {
 			// Recognition error - abort rule
@@ -1287,7 +1172,7 @@ func (p *DrAlgoParser) IncDecStmt() (localctx IIncDecStmtContext) {
 		}
 	}
 	{
-		p.SetState(109)
+		p.SetState(94)
 		_la = p.GetTokenStream().LA(1)
 
 		if !(_la == DrAlgoParserINCR || _la == DrAlgoParserDECR) {
@@ -1403,23 +1288,23 @@ func (p *DrAlgoParser) PrintStmt() (localctx IPrintStmtContext) {
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(111)
+		p.SetState(96)
 		p.Match(DrAlgoParserAFFICHER)
 		if p.HasError() {
 			// Recognition error - abort rule
 			goto errorExit
 		}
 	}
-	p.SetState(113)
+	p.SetState(98)
 	p.GetErrorHandler().Sync(p)
 	if p.HasError() {
 		goto errorExit
 	}
 	_la = p.GetTokenStream().LA(1)
 
-	if (int64(_la) & ^0x3f) == 0 && ((int64(1)<<_la)&2072334303232) != 0 {
+	if (int64(_la) & ^0x3f) == 0 && ((int64(1)<<_la)&64760446976) != 0 {
 		{
-			p.SetState(112)
+			p.SetState(97)
 			p.PrintArgs()
 		}
 
@@ -1561,10 +1446,10 @@ func (p *DrAlgoParser) PrintArgs() (localctx IPrintArgsContext) {
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(115)
+		p.SetState(100)
 		p.Expr()
 	}
-	p.SetState(120)
+	p.SetState(105)
 	p.GetErrorHandler().Sync(p)
 	if p.HasError() {
 		goto errorExit
@@ -1573,7 +1458,7 @@ func (p *DrAlgoParser) PrintArgs() (localctx IPrintArgsContext) {
 
 	for _la == DrAlgoParserCOMMA {
 		{
-			p.SetState(116)
+			p.SetState(101)
 			p.Match(DrAlgoParserCOMMA)
 			if p.HasError() {
 				// Recognition error - abort rule
@@ -1581,11 +1466,11 @@ func (p *DrAlgoParser) PrintArgs() (localctx IPrintArgsContext) {
 			}
 		}
 		{
-			p.SetState(117)
+			p.SetState(102)
 			p.Expr()
 		}
 
-		p.SetState(122)
+		p.SetState(107)
 		p.GetErrorHandler().Sync(p)
 		if p.HasError() {
 			goto errorExit
@@ -1684,7 +1569,7 @@ func (p *DrAlgoParser) ReadStmt() (localctx IReadStmtContext) {
 	p.EnterRule(localctx, 14, DrAlgoParserRULE_readStmt)
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(123)
+		p.SetState(108)
 		p.Match(DrAlgoParserLIRE)
 		if p.HasError() {
 			// Recognition error - abort rule
@@ -1692,7 +1577,7 @@ func (p *DrAlgoParser) ReadStmt() (localctx IReadStmtContext) {
 		}
 	}
 	{
-		p.SetState(124)
+		p.SetState(109)
 		p.Match(DrAlgoParserIDENT)
 		if p.HasError() {
 			// Recognition error - abort rule
@@ -1791,7 +1676,7 @@ func (p *DrAlgoParser) ReadIntStmt() (localctx IReadIntStmtContext) {
 	p.EnterRule(localctx, 16, DrAlgoParserRULE_readIntStmt)
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(126)
+		p.SetState(111)
 		p.Match(DrAlgoParserLIRE_ENTIER)
 		if p.HasError() {
 			// Recognition error - abort rule
@@ -1799,7 +1684,7 @@ func (p *DrAlgoParser) ReadIntStmt() (localctx IReadIntStmtContext) {
 		}
 	}
 	{
-		p.SetState(127)
+		p.SetState(112)
 		p.Match(DrAlgoParserIDENT)
 		if p.HasError() {
 			// Recognition error - abort rule
@@ -2042,7 +1927,7 @@ func (p *DrAlgoParser) IfStmt() (localctx IIfStmtContext) {
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(129)
+		p.SetState(114)
 		p.Match(DrAlgoParserSI)
 		if p.HasError() {
 			// Recognition error - abort rule
@@ -2050,10 +1935,10 @@ func (p *DrAlgoParser) IfStmt() (localctx IIfStmtContext) {
 		}
 	}
 	{
-		p.SetState(130)
+		p.SetState(115)
 		p.Expr()
 	}
-	p.SetState(132)
+	p.SetState(117)
 	p.GetErrorHandler().Sync(p)
 	if p.HasError() {
 		goto errorExit
@@ -2062,7 +1947,7 @@ func (p *DrAlgoParser) IfStmt() (localctx IIfStmtContext) {
 
 	if _la == DrAlgoParserALORS {
 		{
-			p.SetState(131)
+			p.SetState(116)
 			p.Match(DrAlgoParserALORS)
 			if p.HasError() {
 				// Recognition error - abort rule
@@ -2071,7 +1956,7 @@ func (p *DrAlgoParser) IfStmt() (localctx IIfStmtContext) {
 		}
 
 	}
-	p.SetState(135)
+	p.SetState(120)
 	p.GetErrorHandler().Sync(p)
 	if p.HasError() {
 		goto errorExit
@@ -2080,11 +1965,11 @@ func (p *DrAlgoParser) IfStmt() (localctx IIfStmtContext) {
 
 	for ok := true; ok; ok = _la == DrAlgoParserNEWLINE {
 		{
-			p.SetState(134)
+			p.SetState(119)
 			p.Sep()
 		}
 
-		p.SetState(137)
+		p.SetState(122)
 		p.GetErrorHandler().Sync(p)
 		if p.HasError() {
 			goto errorExit
@@ -2092,10 +1977,10 @@ func (p *DrAlgoParser) IfStmt() (localctx IIfStmtContext) {
 		_la = p.GetTokenStream().LA(1)
 	}
 	{
-		p.SetState(139)
+		p.SetState(124)
 		p.Block()
 	}
-	p.SetState(143)
+	p.SetState(128)
 	p.GetErrorHandler().Sync(p)
 	if p.HasError() {
 		goto errorExit
@@ -2104,18 +1989,18 @@ func (p *DrAlgoParser) IfStmt() (localctx IIfStmtContext) {
 
 	for _la == DrAlgoParserSINON_SI {
 		{
-			p.SetState(140)
+			p.SetState(125)
 			p.ElseIfPart()
 		}
 
-		p.SetState(145)
+		p.SetState(130)
 		p.GetErrorHandler().Sync(p)
 		if p.HasError() {
 			goto errorExit
 		}
 		_la = p.GetTokenStream().LA(1)
 	}
-	p.SetState(147)
+	p.SetState(132)
 	p.GetErrorHandler().Sync(p)
 	if p.HasError() {
 		goto errorExit
@@ -2124,13 +2009,13 @@ func (p *DrAlgoParser) IfStmt() (localctx IIfStmtContext) {
 
 	if _la == DrAlgoParserSINON {
 		{
-			p.SetState(146)
+			p.SetState(131)
 			p.ElsePart()
 		}
 
 	}
 	{
-		p.SetState(149)
+		p.SetState(134)
 		p.Match(DrAlgoParserFIN_SI)
 		if p.HasError() {
 			// Recognition error - abort rule
@@ -2308,7 +2193,7 @@ func (p *DrAlgoParser) ElseIfPart() (localctx IElseIfPartContext) {
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(151)
+		p.SetState(136)
 		p.Match(DrAlgoParserSINON_SI)
 		if p.HasError() {
 			// Recognition error - abort rule
@@ -2316,10 +2201,10 @@ func (p *DrAlgoParser) ElseIfPart() (localctx IElseIfPartContext) {
 		}
 	}
 	{
-		p.SetState(152)
+		p.SetState(137)
 		p.Expr()
 	}
-	p.SetState(154)
+	p.SetState(139)
 	p.GetErrorHandler().Sync(p)
 	if p.HasError() {
 		goto errorExit
@@ -2328,7 +2213,7 @@ func (p *DrAlgoParser) ElseIfPart() (localctx IElseIfPartContext) {
 
 	if _la == DrAlgoParserALORS {
 		{
-			p.SetState(153)
+			p.SetState(138)
 			p.Match(DrAlgoParserALORS)
 			if p.HasError() {
 				// Recognition error - abort rule
@@ -2337,7 +2222,7 @@ func (p *DrAlgoParser) ElseIfPart() (localctx IElseIfPartContext) {
 		}
 
 	}
-	p.SetState(157)
+	p.SetState(142)
 	p.GetErrorHandler().Sync(p)
 	if p.HasError() {
 		goto errorExit
@@ -2346,11 +2231,11 @@ func (p *DrAlgoParser) ElseIfPart() (localctx IElseIfPartContext) {
 
 	for ok := true; ok; ok = _la == DrAlgoParserNEWLINE {
 		{
-			p.SetState(156)
+			p.SetState(141)
 			p.Sep()
 		}
 
-		p.SetState(159)
+		p.SetState(144)
 		p.GetErrorHandler().Sync(p)
 		if p.HasError() {
 			goto errorExit
@@ -2358,7 +2243,7 @@ func (p *DrAlgoParser) ElseIfPart() (localctx IElseIfPartContext) {
 		_la = p.GetTokenStream().LA(1)
 	}
 	{
-		p.SetState(161)
+		p.SetState(146)
 		p.Block()
 	}
 
@@ -2510,14 +2395,14 @@ func (p *DrAlgoParser) ElsePart() (localctx IElsePartContext) {
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(163)
+		p.SetState(148)
 		p.Match(DrAlgoParserSINON)
 		if p.HasError() {
 			// Recognition error - abort rule
 			goto errorExit
 		}
 	}
-	p.SetState(165)
+	p.SetState(150)
 	p.GetErrorHandler().Sync(p)
 	if p.HasError() {
 		goto errorExit
@@ -2526,11 +2411,11 @@ func (p *DrAlgoParser) ElsePart() (localctx IElsePartContext) {
 
 	for ok := true; ok; ok = _la == DrAlgoParserNEWLINE {
 		{
-			p.SetState(164)
+			p.SetState(149)
 			p.Sep()
 		}
 
-		p.SetState(167)
+		p.SetState(152)
 		p.GetErrorHandler().Sync(p)
 		if p.HasError() {
 			goto errorExit
@@ -2538,7 +2423,7 @@ func (p *DrAlgoParser) ElsePart() (localctx IElsePartContext) {
 		_la = p.GetTokenStream().LA(1)
 	}
 	{
-		p.SetState(169)
+		p.SetState(154)
 		p.Block()
 	}
 
@@ -2712,7 +2597,7 @@ func (p *DrAlgoParser) WhileStmt() (localctx IWhileStmtContext) {
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(171)
+		p.SetState(156)
 		p.Match(DrAlgoParserTANT_QUE)
 		if p.HasError() {
 			// Recognition error - abort rule
@@ -2720,10 +2605,10 @@ func (p *DrAlgoParser) WhileStmt() (localctx IWhileStmtContext) {
 		}
 	}
 	{
-		p.SetState(172)
+		p.SetState(157)
 		p.Expr()
 	}
-	p.SetState(174)
+	p.SetState(159)
 	p.GetErrorHandler().Sync(p)
 	if p.HasError() {
 		goto errorExit
@@ -2732,11 +2617,11 @@ func (p *DrAlgoParser) WhileStmt() (localctx IWhileStmtContext) {
 
 	for ok := true; ok; ok = _la == DrAlgoParserNEWLINE {
 		{
-			p.SetState(173)
+			p.SetState(158)
 			p.Sep()
 		}
 
-		p.SetState(176)
+		p.SetState(161)
 		p.GetErrorHandler().Sync(p)
 		if p.HasError() {
 			goto errorExit
@@ -2744,1120 +2629,12 @@ func (p *DrAlgoParser) WhileStmt() (localctx IWhileStmtContext) {
 		_la = p.GetTokenStream().LA(1)
 	}
 	{
-		p.SetState(178)
+		p.SetState(163)
 		p.Block()
 	}
 	{
-		p.SetState(179)
+		p.SetState(164)
 		p.Match(DrAlgoParserFIN_TANT_QUE)
-		if p.HasError() {
-			// Recognition error - abort rule
-			goto errorExit
-		}
-	}
-
-errorExit:
-	if p.HasError() {
-		v := p.GetError()
-		localctx.SetException(v)
-		p.GetErrorHandler().ReportError(p, v)
-		p.GetErrorHandler().Recover(p, v)
-		p.SetError(nil)
-	}
-	p.ExitRule()
-	return localctx
-	goto errorExit // Trick to prevent compiler error if the label is not used
-}
-
-// IDoWhileStmtContext is an interface to support dynamic dispatch.
-type IDoWhileStmtContext interface {
-	antlr.ParserRuleContext
-
-	// GetParser returns the parser.
-	GetParser() antlr.Parser
-
-	// Getter signatures
-	FAIT() antlr.TerminalNode
-	Block() IBlockContext
-	TANT_QUE() antlr.TerminalNode
-	Expr() IExprContext
-	AllSep() []ISepContext
-	Sep(i int) ISepContext
-
-	// IsDoWhileStmtContext differentiates from other interfaces.
-	IsDoWhileStmtContext()
-}
-
-type DoWhileStmtContext struct {
-	antlr.BaseParserRuleContext
-	parser antlr.Parser
-}
-
-func NewEmptyDoWhileStmtContext() *DoWhileStmtContext {
-	var p = new(DoWhileStmtContext)
-	antlr.InitBaseParserRuleContext(&p.BaseParserRuleContext, nil, -1)
-	p.RuleIndex = DrAlgoParserRULE_doWhileStmt
-	return p
-}
-
-func InitEmptyDoWhileStmtContext(p *DoWhileStmtContext) {
-	antlr.InitBaseParserRuleContext(&p.BaseParserRuleContext, nil, -1)
-	p.RuleIndex = DrAlgoParserRULE_doWhileStmt
-}
-
-func (*DoWhileStmtContext) IsDoWhileStmtContext() {}
-
-func NewDoWhileStmtContext(parser antlr.Parser, parent antlr.ParserRuleContext, invokingState int) *DoWhileStmtContext {
-	var p = new(DoWhileStmtContext)
-
-	antlr.InitBaseParserRuleContext(&p.BaseParserRuleContext, parent, invokingState)
-
-	p.parser = parser
-	p.RuleIndex = DrAlgoParserRULE_doWhileStmt
-
-	return p
-}
-
-func (s *DoWhileStmtContext) GetParser() antlr.Parser { return s.parser }
-
-func (s *DoWhileStmtContext) FAIT() antlr.TerminalNode {
-	return s.GetToken(DrAlgoParserFAIT, 0)
-}
-
-func (s *DoWhileStmtContext) Block() IBlockContext {
-	var t antlr.RuleContext
-	for _, ctx := range s.GetChildren() {
-		if _, ok := ctx.(IBlockContext); ok {
-			t = ctx.(antlr.RuleContext)
-			break
-		}
-	}
-
-	if t == nil {
-		return nil
-	}
-
-	return t.(IBlockContext)
-}
-
-func (s *DoWhileStmtContext) TANT_QUE() antlr.TerminalNode {
-	return s.GetToken(DrAlgoParserTANT_QUE, 0)
-}
-
-func (s *DoWhileStmtContext) Expr() IExprContext {
-	var t antlr.RuleContext
-	for _, ctx := range s.GetChildren() {
-		if _, ok := ctx.(IExprContext); ok {
-			t = ctx.(antlr.RuleContext)
-			break
-		}
-	}
-
-	if t == nil {
-		return nil
-	}
-
-	return t.(IExprContext)
-}
-
-func (s *DoWhileStmtContext) AllSep() []ISepContext {
-	children := s.GetChildren()
-	len := 0
-	for _, ctx := range children {
-		if _, ok := ctx.(ISepContext); ok {
-			len++
-		}
-	}
-
-	tst := make([]ISepContext, len)
-	i := 0
-	for _, ctx := range children {
-		if t, ok := ctx.(ISepContext); ok {
-			tst[i] = t.(ISepContext)
-			i++
-		}
-	}
-
-	return tst
-}
-
-func (s *DoWhileStmtContext) Sep(i int) ISepContext {
-	var t antlr.RuleContext
-	j := 0
-	for _, ctx := range s.GetChildren() {
-		if _, ok := ctx.(ISepContext); ok {
-			if j == i {
-				t = ctx.(antlr.RuleContext)
-				break
-			}
-			j++
-		}
-	}
-
-	if t == nil {
-		return nil
-	}
-
-	return t.(ISepContext)
-}
-
-func (s *DoWhileStmtContext) GetRuleContext() antlr.RuleContext {
-	return s
-}
-
-func (s *DoWhileStmtContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) string {
-	return antlr.TreesStringTree(s, ruleNames, recog)
-}
-
-func (s *DoWhileStmtContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
-	switch t := visitor.(type) {
-	case DrAlgoVisitor:
-		return t.VisitDoWhileStmt(s)
-
-	default:
-		return t.VisitChildren(s)
-	}
-}
-
-func (p *DrAlgoParser) DoWhileStmt() (localctx IDoWhileStmtContext) {
-	localctx = NewDoWhileStmtContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 26, DrAlgoParserRULE_doWhileStmt)
-	var _la int
-
-	p.EnterOuterAlt(localctx, 1)
-	{
-		p.SetState(181)
-		p.Match(DrAlgoParserFAIT)
-		if p.HasError() {
-			// Recognition error - abort rule
-			goto errorExit
-		}
-	}
-	p.SetState(183)
-	p.GetErrorHandler().Sync(p)
-	if p.HasError() {
-		goto errorExit
-	}
-	_la = p.GetTokenStream().LA(1)
-
-	for ok := true; ok; ok = _la == DrAlgoParserNEWLINE {
-		{
-			p.SetState(182)
-			p.Sep()
-		}
-
-		p.SetState(185)
-		p.GetErrorHandler().Sync(p)
-		if p.HasError() {
-			goto errorExit
-		}
-		_la = p.GetTokenStream().LA(1)
-	}
-	{
-		p.SetState(187)
-		p.Block()
-	}
-	{
-		p.SetState(188)
-		p.Match(DrAlgoParserTANT_QUE)
-		if p.HasError() {
-			// Recognition error - abort rule
-			goto errorExit
-		}
-	}
-	{
-		p.SetState(189)
-		p.Expr()
-	}
-
-errorExit:
-	if p.HasError() {
-		v := p.GetError()
-		localctx.SetException(v)
-		p.GetErrorHandler().ReportError(p, v)
-		p.GetErrorHandler().Recover(p, v)
-		p.SetError(nil)
-	}
-	p.ExitRule()
-	return localctx
-	goto errorExit // Trick to prevent compiler error if the label is not used
-}
-
-// IForStmtContext is an interface to support dynamic dispatch.
-type IForStmtContext interface {
-	antlr.ParserRuleContext
-
-	// GetParser returns the parser.
-	GetParser() antlr.Parser
-
-	// Getter signatures
-	POUR() antlr.TerminalNode
-	AllSEMI() []antlr.TerminalNode
-	SEMI(i int) antlr.TerminalNode
-	Block() IBlockContext
-	FIN_POUR() antlr.TerminalNode
-	ForInit() IForInitContext
-	ForCond() IForCondContext
-	ForPost() IForPostContext
-	AllSep() []ISepContext
-	Sep(i int) ISepContext
-
-	// IsForStmtContext differentiates from other interfaces.
-	IsForStmtContext()
-}
-
-type ForStmtContext struct {
-	antlr.BaseParserRuleContext
-	parser antlr.Parser
-}
-
-func NewEmptyForStmtContext() *ForStmtContext {
-	var p = new(ForStmtContext)
-	antlr.InitBaseParserRuleContext(&p.BaseParserRuleContext, nil, -1)
-	p.RuleIndex = DrAlgoParserRULE_forStmt
-	return p
-}
-
-func InitEmptyForStmtContext(p *ForStmtContext) {
-	antlr.InitBaseParserRuleContext(&p.BaseParserRuleContext, nil, -1)
-	p.RuleIndex = DrAlgoParserRULE_forStmt
-}
-
-func (*ForStmtContext) IsForStmtContext() {}
-
-func NewForStmtContext(parser antlr.Parser, parent antlr.ParserRuleContext, invokingState int) *ForStmtContext {
-	var p = new(ForStmtContext)
-
-	antlr.InitBaseParserRuleContext(&p.BaseParserRuleContext, parent, invokingState)
-
-	p.parser = parser
-	p.RuleIndex = DrAlgoParserRULE_forStmt
-
-	return p
-}
-
-func (s *ForStmtContext) GetParser() antlr.Parser { return s.parser }
-
-func (s *ForStmtContext) POUR() antlr.TerminalNode {
-	return s.GetToken(DrAlgoParserPOUR, 0)
-}
-
-func (s *ForStmtContext) AllSEMI() []antlr.TerminalNode {
-	return s.GetTokens(DrAlgoParserSEMI)
-}
-
-func (s *ForStmtContext) SEMI(i int) antlr.TerminalNode {
-	return s.GetToken(DrAlgoParserSEMI, i)
-}
-
-func (s *ForStmtContext) Block() IBlockContext {
-	var t antlr.RuleContext
-	for _, ctx := range s.GetChildren() {
-		if _, ok := ctx.(IBlockContext); ok {
-			t = ctx.(antlr.RuleContext)
-			break
-		}
-	}
-
-	if t == nil {
-		return nil
-	}
-
-	return t.(IBlockContext)
-}
-
-func (s *ForStmtContext) FIN_POUR() antlr.TerminalNode {
-	return s.GetToken(DrAlgoParserFIN_POUR, 0)
-}
-
-func (s *ForStmtContext) ForInit() IForInitContext {
-	var t antlr.RuleContext
-	for _, ctx := range s.GetChildren() {
-		if _, ok := ctx.(IForInitContext); ok {
-			t = ctx.(antlr.RuleContext)
-			break
-		}
-	}
-
-	if t == nil {
-		return nil
-	}
-
-	return t.(IForInitContext)
-}
-
-func (s *ForStmtContext) ForCond() IForCondContext {
-	var t antlr.RuleContext
-	for _, ctx := range s.GetChildren() {
-		if _, ok := ctx.(IForCondContext); ok {
-			t = ctx.(antlr.RuleContext)
-			break
-		}
-	}
-
-	if t == nil {
-		return nil
-	}
-
-	return t.(IForCondContext)
-}
-
-func (s *ForStmtContext) ForPost() IForPostContext {
-	var t antlr.RuleContext
-	for _, ctx := range s.GetChildren() {
-		if _, ok := ctx.(IForPostContext); ok {
-			t = ctx.(antlr.RuleContext)
-			break
-		}
-	}
-
-	if t == nil {
-		return nil
-	}
-
-	return t.(IForPostContext)
-}
-
-func (s *ForStmtContext) AllSep() []ISepContext {
-	children := s.GetChildren()
-	len := 0
-	for _, ctx := range children {
-		if _, ok := ctx.(ISepContext); ok {
-			len++
-		}
-	}
-
-	tst := make([]ISepContext, len)
-	i := 0
-	for _, ctx := range children {
-		if t, ok := ctx.(ISepContext); ok {
-			tst[i] = t.(ISepContext)
-			i++
-		}
-	}
-
-	return tst
-}
-
-func (s *ForStmtContext) Sep(i int) ISepContext {
-	var t antlr.RuleContext
-	j := 0
-	for _, ctx := range s.GetChildren() {
-		if _, ok := ctx.(ISepContext); ok {
-			if j == i {
-				t = ctx.(antlr.RuleContext)
-				break
-			}
-			j++
-		}
-	}
-
-	if t == nil {
-		return nil
-	}
-
-	return t.(ISepContext)
-}
-
-func (s *ForStmtContext) GetRuleContext() antlr.RuleContext {
-	return s
-}
-
-func (s *ForStmtContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) string {
-	return antlr.TreesStringTree(s, ruleNames, recog)
-}
-
-func (s *ForStmtContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
-	switch t := visitor.(type) {
-	case DrAlgoVisitor:
-		return t.VisitForStmt(s)
-
-	default:
-		return t.VisitChildren(s)
-	}
-}
-
-func (p *DrAlgoParser) ForStmt() (localctx IForStmtContext) {
-	localctx = NewForStmtContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 28, DrAlgoParserRULE_forStmt)
-	var _la int
-
-	p.EnterOuterAlt(localctx, 1)
-	{
-		p.SetState(191)
-		p.Match(DrAlgoParserPOUR)
-		if p.HasError() {
-			// Recognition error - abort rule
-			goto errorExit
-		}
-	}
-	p.SetState(193)
-	p.GetErrorHandler().Sync(p)
-	if p.HasError() {
-		goto errorExit
-	}
-	_la = p.GetTokenStream().LA(1)
-
-	if _la == DrAlgoParserIDENT {
-		{
-			p.SetState(192)
-			p.ForInit()
-		}
-
-	}
-	{
-		p.SetState(195)
-		p.Match(DrAlgoParserSEMI)
-		if p.HasError() {
-			// Recognition error - abort rule
-			goto errorExit
-		}
-	}
-	p.SetState(197)
-	p.GetErrorHandler().Sync(p)
-	if p.HasError() {
-		goto errorExit
-	}
-	_la = p.GetTokenStream().LA(1)
-
-	if (int64(_la) & ^0x3f) == 0 && ((int64(1)<<_la)&2072334303232) != 0 {
-		{
-			p.SetState(196)
-			p.ForCond()
-		}
-
-	}
-	{
-		p.SetState(199)
-		p.Match(DrAlgoParserSEMI)
-		if p.HasError() {
-			// Recognition error - abort rule
-			goto errorExit
-		}
-	}
-	p.SetState(201)
-	p.GetErrorHandler().Sync(p)
-	if p.HasError() {
-		goto errorExit
-	}
-	_la = p.GetTokenStream().LA(1)
-
-	if _la == DrAlgoParserIDENT {
-		{
-			p.SetState(200)
-			p.ForPost()
-		}
-
-	}
-	p.SetState(204)
-	p.GetErrorHandler().Sync(p)
-	if p.HasError() {
-		goto errorExit
-	}
-	_la = p.GetTokenStream().LA(1)
-
-	for ok := true; ok; ok = _la == DrAlgoParserNEWLINE {
-		{
-			p.SetState(203)
-			p.Sep()
-		}
-
-		p.SetState(206)
-		p.GetErrorHandler().Sync(p)
-		if p.HasError() {
-			goto errorExit
-		}
-		_la = p.GetTokenStream().LA(1)
-	}
-	{
-		p.SetState(208)
-		p.Block()
-	}
-	{
-		p.SetState(209)
-		p.Match(DrAlgoParserFIN_POUR)
-		if p.HasError() {
-			// Recognition error - abort rule
-			goto errorExit
-		}
-	}
-
-errorExit:
-	if p.HasError() {
-		v := p.GetError()
-		localctx.SetException(v)
-		p.GetErrorHandler().ReportError(p, v)
-		p.GetErrorHandler().Recover(p, v)
-		p.SetError(nil)
-	}
-	p.ExitRule()
-	return localctx
-	goto errorExit // Trick to prevent compiler error if the label is not used
-}
-
-// IForInitContext is an interface to support dynamic dispatch.
-type IForInitContext interface {
-	antlr.ParserRuleContext
-
-	// GetParser returns the parser.
-	GetParser() antlr.Parser
-
-	// Getter signatures
-	AssignStmt() IAssignStmtContext
-
-	// IsForInitContext differentiates from other interfaces.
-	IsForInitContext()
-}
-
-type ForInitContext struct {
-	antlr.BaseParserRuleContext
-	parser antlr.Parser
-}
-
-func NewEmptyForInitContext() *ForInitContext {
-	var p = new(ForInitContext)
-	antlr.InitBaseParserRuleContext(&p.BaseParserRuleContext, nil, -1)
-	p.RuleIndex = DrAlgoParserRULE_forInit
-	return p
-}
-
-func InitEmptyForInitContext(p *ForInitContext) {
-	antlr.InitBaseParserRuleContext(&p.BaseParserRuleContext, nil, -1)
-	p.RuleIndex = DrAlgoParserRULE_forInit
-}
-
-func (*ForInitContext) IsForInitContext() {}
-
-func NewForInitContext(parser antlr.Parser, parent antlr.ParserRuleContext, invokingState int) *ForInitContext {
-	var p = new(ForInitContext)
-
-	antlr.InitBaseParserRuleContext(&p.BaseParserRuleContext, parent, invokingState)
-
-	p.parser = parser
-	p.RuleIndex = DrAlgoParserRULE_forInit
-
-	return p
-}
-
-func (s *ForInitContext) GetParser() antlr.Parser { return s.parser }
-
-func (s *ForInitContext) AssignStmt() IAssignStmtContext {
-	var t antlr.RuleContext
-	for _, ctx := range s.GetChildren() {
-		if _, ok := ctx.(IAssignStmtContext); ok {
-			t = ctx.(antlr.RuleContext)
-			break
-		}
-	}
-
-	if t == nil {
-		return nil
-	}
-
-	return t.(IAssignStmtContext)
-}
-
-func (s *ForInitContext) GetRuleContext() antlr.RuleContext {
-	return s
-}
-
-func (s *ForInitContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) string {
-	return antlr.TreesStringTree(s, ruleNames, recog)
-}
-
-func (s *ForInitContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
-	switch t := visitor.(type) {
-	case DrAlgoVisitor:
-		return t.VisitForInit(s)
-
-	default:
-		return t.VisitChildren(s)
-	}
-}
-
-func (p *DrAlgoParser) ForInit() (localctx IForInitContext) {
-	localctx = NewForInitContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 30, DrAlgoParserRULE_forInit)
-	p.EnterOuterAlt(localctx, 1)
-	{
-		p.SetState(211)
-		p.AssignStmt()
-	}
-
-errorExit:
-	if p.HasError() {
-		v := p.GetError()
-		localctx.SetException(v)
-		p.GetErrorHandler().ReportError(p, v)
-		p.GetErrorHandler().Recover(p, v)
-		p.SetError(nil)
-	}
-	p.ExitRule()
-	return localctx
-	goto errorExit // Trick to prevent compiler error if the label is not used
-}
-
-// IForCondContext is an interface to support dynamic dispatch.
-type IForCondContext interface {
-	antlr.ParserRuleContext
-
-	// GetParser returns the parser.
-	GetParser() antlr.Parser
-
-	// Getter signatures
-	Expr() IExprContext
-
-	// IsForCondContext differentiates from other interfaces.
-	IsForCondContext()
-}
-
-type ForCondContext struct {
-	antlr.BaseParserRuleContext
-	parser antlr.Parser
-}
-
-func NewEmptyForCondContext() *ForCondContext {
-	var p = new(ForCondContext)
-	antlr.InitBaseParserRuleContext(&p.BaseParserRuleContext, nil, -1)
-	p.RuleIndex = DrAlgoParserRULE_forCond
-	return p
-}
-
-func InitEmptyForCondContext(p *ForCondContext) {
-	antlr.InitBaseParserRuleContext(&p.BaseParserRuleContext, nil, -1)
-	p.RuleIndex = DrAlgoParserRULE_forCond
-}
-
-func (*ForCondContext) IsForCondContext() {}
-
-func NewForCondContext(parser antlr.Parser, parent antlr.ParserRuleContext, invokingState int) *ForCondContext {
-	var p = new(ForCondContext)
-
-	antlr.InitBaseParserRuleContext(&p.BaseParserRuleContext, parent, invokingState)
-
-	p.parser = parser
-	p.RuleIndex = DrAlgoParserRULE_forCond
-
-	return p
-}
-
-func (s *ForCondContext) GetParser() antlr.Parser { return s.parser }
-
-func (s *ForCondContext) Expr() IExprContext {
-	var t antlr.RuleContext
-	for _, ctx := range s.GetChildren() {
-		if _, ok := ctx.(IExprContext); ok {
-			t = ctx.(antlr.RuleContext)
-			break
-		}
-	}
-
-	if t == nil {
-		return nil
-	}
-
-	return t.(IExprContext)
-}
-
-func (s *ForCondContext) GetRuleContext() antlr.RuleContext {
-	return s
-}
-
-func (s *ForCondContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) string {
-	return antlr.TreesStringTree(s, ruleNames, recog)
-}
-
-func (s *ForCondContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
-	switch t := visitor.(type) {
-	case DrAlgoVisitor:
-		return t.VisitForCond(s)
-
-	default:
-		return t.VisitChildren(s)
-	}
-}
-
-func (p *DrAlgoParser) ForCond() (localctx IForCondContext) {
-	localctx = NewForCondContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 32, DrAlgoParserRULE_forCond)
-	p.EnterOuterAlt(localctx, 1)
-	{
-		p.SetState(213)
-		p.Expr()
-	}
-
-errorExit:
-	if p.HasError() {
-		v := p.GetError()
-		localctx.SetException(v)
-		p.GetErrorHandler().ReportError(p, v)
-		p.GetErrorHandler().Recover(p, v)
-		p.SetError(nil)
-	}
-	p.ExitRule()
-	return localctx
-	goto errorExit // Trick to prevent compiler error if the label is not used
-}
-
-// IForPostContext is an interface to support dynamic dispatch.
-type IForPostContext interface {
-	antlr.ParserRuleContext
-
-	// GetParser returns the parser.
-	GetParser() antlr.Parser
-
-	// Getter signatures
-	IncDecStmt() IIncDecStmtContext
-	AssignStmt() IAssignStmtContext
-
-	// IsForPostContext differentiates from other interfaces.
-	IsForPostContext()
-}
-
-type ForPostContext struct {
-	antlr.BaseParserRuleContext
-	parser antlr.Parser
-}
-
-func NewEmptyForPostContext() *ForPostContext {
-	var p = new(ForPostContext)
-	antlr.InitBaseParserRuleContext(&p.BaseParserRuleContext, nil, -1)
-	p.RuleIndex = DrAlgoParserRULE_forPost
-	return p
-}
-
-func InitEmptyForPostContext(p *ForPostContext) {
-	antlr.InitBaseParserRuleContext(&p.BaseParserRuleContext, nil, -1)
-	p.RuleIndex = DrAlgoParserRULE_forPost
-}
-
-func (*ForPostContext) IsForPostContext() {}
-
-func NewForPostContext(parser antlr.Parser, parent antlr.ParserRuleContext, invokingState int) *ForPostContext {
-	var p = new(ForPostContext)
-
-	antlr.InitBaseParserRuleContext(&p.BaseParserRuleContext, parent, invokingState)
-
-	p.parser = parser
-	p.RuleIndex = DrAlgoParserRULE_forPost
-
-	return p
-}
-
-func (s *ForPostContext) GetParser() antlr.Parser { return s.parser }
-
-func (s *ForPostContext) IncDecStmt() IIncDecStmtContext {
-	var t antlr.RuleContext
-	for _, ctx := range s.GetChildren() {
-		if _, ok := ctx.(IIncDecStmtContext); ok {
-			t = ctx.(antlr.RuleContext)
-			break
-		}
-	}
-
-	if t == nil {
-		return nil
-	}
-
-	return t.(IIncDecStmtContext)
-}
-
-func (s *ForPostContext) AssignStmt() IAssignStmtContext {
-	var t antlr.RuleContext
-	for _, ctx := range s.GetChildren() {
-		if _, ok := ctx.(IAssignStmtContext); ok {
-			t = ctx.(antlr.RuleContext)
-			break
-		}
-	}
-
-	if t == nil {
-		return nil
-	}
-
-	return t.(IAssignStmtContext)
-}
-
-func (s *ForPostContext) GetRuleContext() antlr.RuleContext {
-	return s
-}
-
-func (s *ForPostContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) string {
-	return antlr.TreesStringTree(s, ruleNames, recog)
-}
-
-func (s *ForPostContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
-	switch t := visitor.(type) {
-	case DrAlgoVisitor:
-		return t.VisitForPost(s)
-
-	default:
-		return t.VisitChildren(s)
-	}
-}
-
-func (p *DrAlgoParser) ForPost() (localctx IForPostContext) {
-	localctx = NewForPostContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 34, DrAlgoParserRULE_forPost)
-	p.SetState(217)
-	p.GetErrorHandler().Sync(p)
-	if p.HasError() {
-		goto errorExit
-	}
-
-	switch p.GetInterpreter().AdaptivePredict(p.BaseParser, p.GetTokenStream(), 21, p.GetParserRuleContext()) {
-	case 1:
-		p.EnterOuterAlt(localctx, 1)
-		{
-			p.SetState(215)
-			p.IncDecStmt()
-		}
-
-	case 2:
-		p.EnterOuterAlt(localctx, 2)
-		{
-			p.SetState(216)
-			p.AssignStmt()
-		}
-
-	case antlr.ATNInvalidAltNumber:
-		goto errorExit
-	}
-
-errorExit:
-	if p.HasError() {
-		v := p.GetError()
-		localctx.SetException(v)
-		p.GetErrorHandler().ReportError(p, v)
-		p.GetErrorHandler().Recover(p, v)
-		p.SetError(nil)
-	}
-	p.ExitRule()
-	return localctx
-	goto errorExit // Trick to prevent compiler error if the label is not used
-}
-
-// IForEachStmtContext is an interface to support dynamic dispatch.
-type IForEachStmtContext interface {
-	antlr.ParserRuleContext
-
-	// GetParser returns the parser.
-	GetParser() antlr.Parser
-
-	// Getter signatures
-	POUR_CHAQUE() antlr.TerminalNode
-	IDENT() antlr.TerminalNode
-	DANS() antlr.TerminalNode
-	Expr() IExprContext
-	Block() IBlockContext
-	FIN_POUR() antlr.TerminalNode
-	AllSep() []ISepContext
-	Sep(i int) ISepContext
-
-	// IsForEachStmtContext differentiates from other interfaces.
-	IsForEachStmtContext()
-}
-
-type ForEachStmtContext struct {
-	antlr.BaseParserRuleContext
-	parser antlr.Parser
-}
-
-func NewEmptyForEachStmtContext() *ForEachStmtContext {
-	var p = new(ForEachStmtContext)
-	antlr.InitBaseParserRuleContext(&p.BaseParserRuleContext, nil, -1)
-	p.RuleIndex = DrAlgoParserRULE_forEachStmt
-	return p
-}
-
-func InitEmptyForEachStmtContext(p *ForEachStmtContext) {
-	antlr.InitBaseParserRuleContext(&p.BaseParserRuleContext, nil, -1)
-	p.RuleIndex = DrAlgoParserRULE_forEachStmt
-}
-
-func (*ForEachStmtContext) IsForEachStmtContext() {}
-
-func NewForEachStmtContext(parser antlr.Parser, parent antlr.ParserRuleContext, invokingState int) *ForEachStmtContext {
-	var p = new(ForEachStmtContext)
-
-	antlr.InitBaseParserRuleContext(&p.BaseParserRuleContext, parent, invokingState)
-
-	p.parser = parser
-	p.RuleIndex = DrAlgoParserRULE_forEachStmt
-
-	return p
-}
-
-func (s *ForEachStmtContext) GetParser() antlr.Parser { return s.parser }
-
-func (s *ForEachStmtContext) POUR_CHAQUE() antlr.TerminalNode {
-	return s.GetToken(DrAlgoParserPOUR_CHAQUE, 0)
-}
-
-func (s *ForEachStmtContext) IDENT() antlr.TerminalNode {
-	return s.GetToken(DrAlgoParserIDENT, 0)
-}
-
-func (s *ForEachStmtContext) DANS() antlr.TerminalNode {
-	return s.GetToken(DrAlgoParserDANS, 0)
-}
-
-func (s *ForEachStmtContext) Expr() IExprContext {
-	var t antlr.RuleContext
-	for _, ctx := range s.GetChildren() {
-		if _, ok := ctx.(IExprContext); ok {
-			t = ctx.(antlr.RuleContext)
-			break
-		}
-	}
-
-	if t == nil {
-		return nil
-	}
-
-	return t.(IExprContext)
-}
-
-func (s *ForEachStmtContext) Block() IBlockContext {
-	var t antlr.RuleContext
-	for _, ctx := range s.GetChildren() {
-		if _, ok := ctx.(IBlockContext); ok {
-			t = ctx.(antlr.RuleContext)
-			break
-		}
-	}
-
-	if t == nil {
-		return nil
-	}
-
-	return t.(IBlockContext)
-}
-
-func (s *ForEachStmtContext) FIN_POUR() antlr.TerminalNode {
-	return s.GetToken(DrAlgoParserFIN_POUR, 0)
-}
-
-func (s *ForEachStmtContext) AllSep() []ISepContext {
-	children := s.GetChildren()
-	len := 0
-	for _, ctx := range children {
-		if _, ok := ctx.(ISepContext); ok {
-			len++
-		}
-	}
-
-	tst := make([]ISepContext, len)
-	i := 0
-	for _, ctx := range children {
-		if t, ok := ctx.(ISepContext); ok {
-			tst[i] = t.(ISepContext)
-			i++
-		}
-	}
-
-	return tst
-}
-
-func (s *ForEachStmtContext) Sep(i int) ISepContext {
-	var t antlr.RuleContext
-	j := 0
-	for _, ctx := range s.GetChildren() {
-		if _, ok := ctx.(ISepContext); ok {
-			if j == i {
-				t = ctx.(antlr.RuleContext)
-				break
-			}
-			j++
-		}
-	}
-
-	if t == nil {
-		return nil
-	}
-
-	return t.(ISepContext)
-}
-
-func (s *ForEachStmtContext) GetRuleContext() antlr.RuleContext {
-	return s
-}
-
-func (s *ForEachStmtContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) string {
-	return antlr.TreesStringTree(s, ruleNames, recog)
-}
-
-func (s *ForEachStmtContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
-	switch t := visitor.(type) {
-	case DrAlgoVisitor:
-		return t.VisitForEachStmt(s)
-
-	default:
-		return t.VisitChildren(s)
-	}
-}
-
-func (p *DrAlgoParser) ForEachStmt() (localctx IForEachStmtContext) {
-	localctx = NewForEachStmtContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 36, DrAlgoParserRULE_forEachStmt)
-	var _la int
-
-	p.EnterOuterAlt(localctx, 1)
-	{
-		p.SetState(219)
-		p.Match(DrAlgoParserPOUR_CHAQUE)
-		if p.HasError() {
-			// Recognition error - abort rule
-			goto errorExit
-		}
-	}
-	{
-		p.SetState(220)
-		p.Match(DrAlgoParserIDENT)
-		if p.HasError() {
-			// Recognition error - abort rule
-			goto errorExit
-		}
-	}
-	{
-		p.SetState(221)
-		p.Match(DrAlgoParserDANS)
-		if p.HasError() {
-			// Recognition error - abort rule
-			goto errorExit
-		}
-	}
-	{
-		p.SetState(222)
-		p.Expr()
-	}
-	p.SetState(224)
-	p.GetErrorHandler().Sync(p)
-	if p.HasError() {
-		goto errorExit
-	}
-	_la = p.GetTokenStream().LA(1)
-
-	for ok := true; ok; ok = _la == DrAlgoParserNEWLINE {
-		{
-			p.SetState(223)
-			p.Sep()
-		}
-
-		p.SetState(226)
-		p.GetErrorHandler().Sync(p)
-		if p.HasError() {
-			goto errorExit
-		}
-		_la = p.GetTokenStream().LA(1)
-	}
-	{
-		p.SetState(228)
-		p.Block()
-	}
-	{
-		p.SetState(229)
-		p.Match(DrAlgoParserFIN_POUR)
 		if p.HasError() {
 			// Recognition error - abort rule
 			goto errorExit
@@ -3959,10 +2736,10 @@ func (s *BlockContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
 
 func (p *DrAlgoParser) Block() (localctx IBlockContext) {
 	localctx = NewBlockContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 38, DrAlgoParserRULE_block)
+	p.EnterRule(localctx, 26, DrAlgoParserRULE_block)
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(231)
+		p.SetState(166)
 		p.StmtList()
 	}
 
@@ -4049,10 +2826,10 @@ func (s *SepContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
 
 func (p *DrAlgoParser) Sep() (localctx ISepContext) {
 	localctx = NewSepContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 40, DrAlgoParserRULE_sep)
+	p.EnterRule(localctx, 28, DrAlgoParserRULE_sep)
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(233)
+		p.SetState(168)
 		p.Match(DrAlgoParserNEWLINE)
 		if p.HasError() {
 			// Recognition error - abort rule
@@ -4155,10 +2932,10 @@ func (s *ExprContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
 
 func (p *DrAlgoParser) Expr() (localctx IExprContext) {
 	localctx = NewExprContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 42, DrAlgoParserRULE_expr)
+	p.EnterRule(localctx, 30, DrAlgoParserRULE_expr)
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(235)
+		p.SetState(170)
 		p.Equality()
 	}
 
@@ -4303,15 +3080,15 @@ func (s *EqualityContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
 
 func (p *DrAlgoParser) Equality() (localctx IEqualityContext) {
 	localctx = NewEqualityContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 44, DrAlgoParserRULE_equality)
+	p.EnterRule(localctx, 32, DrAlgoParserRULE_equality)
 	var _la int
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(237)
+		p.SetState(172)
 		p.Comparison()
 	}
-	p.SetState(242)
+	p.SetState(177)
 	p.GetErrorHandler().Sync(p)
 	if p.HasError() {
 		goto errorExit
@@ -4320,7 +3097,7 @@ func (p *DrAlgoParser) Equality() (localctx IEqualityContext) {
 
 	for _la == DrAlgoParserEQ || _la == DrAlgoParserNEQ {
 		{
-			p.SetState(238)
+			p.SetState(173)
 			_la = p.GetTokenStream().LA(1)
 
 			if !(_la == DrAlgoParserEQ || _la == DrAlgoParserNEQ) {
@@ -4331,11 +3108,11 @@ func (p *DrAlgoParser) Equality() (localctx IEqualityContext) {
 			}
 		}
 		{
-			p.SetState(239)
+			p.SetState(174)
 			p.Comparison()
 		}
 
-		p.SetState(244)
+		p.SetState(179)
 		p.GetErrorHandler().Sync(p)
 		if p.HasError() {
 			goto errorExit
@@ -4504,27 +3281,27 @@ func (s *ComparisonContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
 
 func (p *DrAlgoParser) Comparison() (localctx IComparisonContext) {
 	localctx = NewComparisonContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 46, DrAlgoParserRULE_comparison)
+	p.EnterRule(localctx, 34, DrAlgoParserRULE_comparison)
 	var _la int
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(245)
+		p.SetState(180)
 		p.Addition()
 	}
-	p.SetState(250)
+	p.SetState(185)
 	p.GetErrorHandler().Sync(p)
 	if p.HasError() {
 		goto errorExit
 	}
 	_la = p.GetTokenStream().LA(1)
 
-	for (int64(_la) & ^0x3f) == 0 && ((int64(1)<<_la)&251658240) != 0 {
+	for (int64(_la) & ^0x3f) == 0 && ((int64(1)<<_la)&7864320) != 0 {
 		{
-			p.SetState(246)
+			p.SetState(181)
 			_la = p.GetTokenStream().LA(1)
 
-			if !((int64(_la) & ^0x3f) == 0 && ((int64(1)<<_la)&251658240) != 0) {
+			if !((int64(_la) & ^0x3f) == 0 && ((int64(1)<<_la)&7864320) != 0) {
 				p.GetErrorHandler().RecoverInline(p)
 			} else {
 				p.GetErrorHandler().ReportMatch(p)
@@ -4532,11 +3309,11 @@ func (p *DrAlgoParser) Comparison() (localctx IComparisonContext) {
 			}
 		}
 		{
-			p.SetState(247)
+			p.SetState(182)
 			p.Addition()
 		}
 
-		p.SetState(252)
+		p.SetState(187)
 		p.GetErrorHandler().Sync(p)
 		if p.HasError() {
 			goto errorExit
@@ -4685,15 +3462,15 @@ func (s *AdditionContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
 
 func (p *DrAlgoParser) Addition() (localctx IAdditionContext) {
 	localctx = NewAdditionContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 48, DrAlgoParserRULE_addition)
+	p.EnterRule(localctx, 36, DrAlgoParserRULE_addition)
 	var _la int
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(253)
+		p.SetState(188)
 		p.Multiplication()
 	}
-	p.SetState(258)
+	p.SetState(193)
 	p.GetErrorHandler().Sync(p)
 	if p.HasError() {
 		goto errorExit
@@ -4702,7 +3479,7 @@ func (p *DrAlgoParser) Addition() (localctx IAdditionContext) {
 
 	for _la == DrAlgoParserPLUS || _la == DrAlgoParserMINUS {
 		{
-			p.SetState(254)
+			p.SetState(189)
 			_la = p.GetTokenStream().LA(1)
 
 			if !(_la == DrAlgoParserPLUS || _la == DrAlgoParserMINUS) {
@@ -4713,11 +3490,11 @@ func (p *DrAlgoParser) Addition() (localctx IAdditionContext) {
 			}
 		}
 		{
-			p.SetState(255)
+			p.SetState(190)
 			p.Multiplication()
 		}
 
-		p.SetState(260)
+		p.SetState(195)
 		p.GetErrorHandler().Sync(p)
 		if p.HasError() {
 			goto errorExit
@@ -4876,27 +3653,27 @@ func (s *MultiplicationContext) Accept(visitor antlr.ParseTreeVisitor) interface
 
 func (p *DrAlgoParser) Multiplication() (localctx IMultiplicationContext) {
 	localctx = NewMultiplicationContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 50, DrAlgoParserRULE_multiplication)
+	p.EnterRule(localctx, 38, DrAlgoParserRULE_multiplication)
 	var _la int
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(261)
+		p.SetState(196)
 		p.Power()
 	}
-	p.SetState(266)
+	p.SetState(201)
 	p.GetErrorHandler().Sync(p)
 	if p.HasError() {
 		goto errorExit
 	}
 	_la = p.GetTokenStream().LA(1)
 
-	for (int64(_la) & ^0x3f) == 0 && ((int64(1)<<_la)&3670016) != 0 {
+	for (int64(_la) & ^0x3f) == 0 && ((int64(1)<<_la)&114688) != 0 {
 		{
-			p.SetState(262)
+			p.SetState(197)
 			_la = p.GetTokenStream().LA(1)
 
-			if !((int64(_la) & ^0x3f) == 0 && ((int64(1)<<_la)&3670016) != 0) {
+			if !((int64(_la) & ^0x3f) == 0 && ((int64(1)<<_la)&114688) != 0) {
 				p.GetErrorHandler().RecoverInline(p)
 			} else {
 				p.GetErrorHandler().ReportMatch(p)
@@ -4904,11 +3681,11 @@ func (p *DrAlgoParser) Multiplication() (localctx IMultiplicationContext) {
 			}
 		}
 		{
-			p.SetState(263)
+			p.SetState(198)
 			p.Power()
 		}
 
-		p.SetState(268)
+		p.SetState(203)
 		p.GetErrorHandler().Sync(p)
 		if p.HasError() {
 			goto errorExit
@@ -5033,15 +3810,15 @@ func (s *PowerContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
 
 func (p *DrAlgoParser) Power() (localctx IPowerContext) {
 	localctx = NewPowerContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 52, DrAlgoParserRULE_power)
+	p.EnterRule(localctx, 40, DrAlgoParserRULE_power)
 	var _la int
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(269)
+		p.SetState(204)
 		p.Unary()
 	}
-	p.SetState(272)
+	p.SetState(207)
 	p.GetErrorHandler().Sync(p)
 	if p.HasError() {
 		goto errorExit
@@ -5050,7 +3827,7 @@ func (p *DrAlgoParser) Power() (localctx IPowerContext) {
 
 	if _la == DrAlgoParserPOW {
 		{
-			p.SetState(270)
+			p.SetState(205)
 			p.Match(DrAlgoParserPOW)
 			if p.HasError() {
 				// Recognition error - abort rule
@@ -5058,7 +3835,7 @@ func (p *DrAlgoParser) Power() (localctx IPowerContext) {
 			}
 		}
 		{
-			p.SetState(271)
+			p.SetState(206)
 			p.Power()
 		}
 
@@ -5186,10 +3963,10 @@ func (s *UnaryContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
 
 func (p *DrAlgoParser) Unary() (localctx IUnaryContext) {
 	localctx = NewUnaryContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 54, DrAlgoParserRULE_unary)
+	p.EnterRule(localctx, 42, DrAlgoParserRULE_unary)
 	var _la int
 
-	p.SetState(277)
+	p.SetState(212)
 	p.GetErrorHandler().Sync(p)
 	if p.HasError() {
 		goto errorExit
@@ -5199,7 +3976,7 @@ func (p *DrAlgoParser) Unary() (localctx IUnaryContext) {
 	case DrAlgoParserPLUS, DrAlgoParserMINUS:
 		p.EnterOuterAlt(localctx, 1)
 		{
-			p.SetState(274)
+			p.SetState(209)
 			_la = p.GetTokenStream().LA(1)
 
 			if !(_la == DrAlgoParserPLUS || _la == DrAlgoParserMINUS) {
@@ -5210,14 +3987,14 @@ func (p *DrAlgoParser) Unary() (localctx IUnaryContext) {
 			}
 		}
 		{
-			p.SetState(275)
+			p.SetState(210)
 			p.Unary()
 		}
 
 	case DrAlgoParserLPAREN, DrAlgoParserLBRACK, DrAlgoParserIDENT, DrAlgoParserFLOAT, DrAlgoParserINT, DrAlgoParserSTRING:
 		p.EnterOuterAlt(localctx, 2)
 		{
-			p.SetState(276)
+			p.SetState(211)
 			p.Primary()
 		}
 
@@ -5370,8 +4147,8 @@ func (s *PrimaryContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
 
 func (p *DrAlgoParser) Primary() (localctx IPrimaryContext) {
 	localctx = NewPrimaryContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 56, DrAlgoParserRULE_primary)
-	p.SetState(286)
+	p.EnterRule(localctx, 44, DrAlgoParserRULE_primary)
+	p.SetState(221)
 	p.GetErrorHandler().Sync(p)
 	if p.HasError() {
 		goto errorExit
@@ -5381,21 +4158,21 @@ func (p *DrAlgoParser) Primary() (localctx IPrimaryContext) {
 	case DrAlgoParserLBRACK:
 		p.EnterOuterAlt(localctx, 1)
 		{
-			p.SetState(279)
+			p.SetState(214)
 			p.ListLiteral()
 		}
 
 	case DrAlgoParserFLOAT, DrAlgoParserINT, DrAlgoParserSTRING:
 		p.EnterOuterAlt(localctx, 2)
 		{
-			p.SetState(280)
+			p.SetState(215)
 			p.Literal()
 		}
 
 	case DrAlgoParserIDENT:
 		p.EnterOuterAlt(localctx, 3)
 		{
-			p.SetState(281)
+			p.SetState(216)
 			p.Match(DrAlgoParserIDENT)
 			if p.HasError() {
 				// Recognition error - abort rule
@@ -5406,7 +4183,7 @@ func (p *DrAlgoParser) Primary() (localctx IPrimaryContext) {
 	case DrAlgoParserLPAREN:
 		p.EnterOuterAlt(localctx, 4)
 		{
-			p.SetState(282)
+			p.SetState(217)
 			p.Match(DrAlgoParserLPAREN)
 			if p.HasError() {
 				// Recognition error - abort rule
@@ -5414,11 +4191,11 @@ func (p *DrAlgoParser) Primary() (localctx IPrimaryContext) {
 			}
 		}
 		{
-			p.SetState(283)
+			p.SetState(218)
 			p.Expr()
 		}
 		{
-			p.SetState(284)
+			p.SetState(219)
 			p.Match(DrAlgoParserRPAREN)
 			if p.HasError() {
 				// Recognition error - abort rule
@@ -5572,31 +4349,31 @@ func (s *ListLiteralContext) Accept(visitor antlr.ParseTreeVisitor) interface{} 
 
 func (p *DrAlgoParser) ListLiteral() (localctx IListLiteralContext) {
 	localctx = NewListLiteralContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 58, DrAlgoParserRULE_listLiteral)
+	p.EnterRule(localctx, 46, DrAlgoParserRULE_listLiteral)
 	var _la int
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(288)
+		p.SetState(223)
 		p.Match(DrAlgoParserLBRACK)
 		if p.HasError() {
 			// Recognition error - abort rule
 			goto errorExit
 		}
 	}
-	p.SetState(297)
+	p.SetState(232)
 	p.GetErrorHandler().Sync(p)
 	if p.HasError() {
 		goto errorExit
 	}
 	_la = p.GetTokenStream().LA(1)
 
-	if (int64(_la) & ^0x3f) == 0 && ((int64(1)<<_la)&2072334303232) != 0 {
+	if (int64(_la) & ^0x3f) == 0 && ((int64(1)<<_la)&64760446976) != 0 {
 		{
-			p.SetState(289)
+			p.SetState(224)
 			p.Expr()
 		}
-		p.SetState(294)
+		p.SetState(229)
 		p.GetErrorHandler().Sync(p)
 		if p.HasError() {
 			goto errorExit
@@ -5605,7 +4382,7 @@ func (p *DrAlgoParser) ListLiteral() (localctx IListLiteralContext) {
 
 		for _la == DrAlgoParserCOMMA {
 			{
-				p.SetState(290)
+				p.SetState(225)
 				p.Match(DrAlgoParserCOMMA)
 				if p.HasError() {
 					// Recognition error - abort rule
@@ -5613,11 +4390,11 @@ func (p *DrAlgoParser) ListLiteral() (localctx IListLiteralContext) {
 				}
 			}
 			{
-				p.SetState(291)
+				p.SetState(226)
 				p.Expr()
 			}
 
-			p.SetState(296)
+			p.SetState(231)
 			p.GetErrorHandler().Sync(p)
 			if p.HasError() {
 				goto errorExit
@@ -5627,7 +4404,7 @@ func (p *DrAlgoParser) ListLiteral() (localctx IListLiteralContext) {
 
 	}
 	{
-		p.SetState(299)
+		p.SetState(234)
 		p.Match(DrAlgoParserRBRACK)
 		if p.HasError() {
 			// Recognition error - abort rule
@@ -5728,15 +4505,15 @@ func (s *LiteralContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
 
 func (p *DrAlgoParser) Literal() (localctx ILiteralContext) {
 	localctx = NewLiteralContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 60, DrAlgoParserRULE_literal)
+	p.EnterRule(localctx, 48, DrAlgoParserRULE_literal)
 	var _la int
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(301)
+		p.SetState(236)
 		_la = p.GetTokenStream().LA(1)
 
-		if !((int64(_la) & ^0x3f) == 0 && ((int64(1)<<_la)&1924145348608) != 0) {
+		if !((int64(_la) & ^0x3f) == 0 && ((int64(1)<<_la)&60129542144) != 0) {
 			p.GetErrorHandler().RecoverInline(p)
 		} else {
 			p.GetErrorHandler().ReportMatch(p)

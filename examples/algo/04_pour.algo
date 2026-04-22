@@ -1,13 +1,11 @@
-// 04_pour.algo
-// Test des boucles Pour et Pour Chaque
+// 04_pour.algo (converti en tant que)
+// Test des boucles tant que (remplace pour et pour chaque)
 
-Afficher "Boucle Pour classique :"
-Pour i = 0; i < 5; i++
+Afficher "Boucle Pour classique (converti) :"
+i = 0
+tant que i < 5
     Afficher "Valeur de i :", i
-Fin Pour
+    i++
+fin tant que
 
-Afficher "Boucle Pour Chaque :"
-ma_liste = [10, 20, 30, 40]
-Pour Chaque element Dans ma_liste
-    Afficher "Element :", element
-Fin Pour
+Afficher "Pas de boucle Pour Chaque (non supporté) :"

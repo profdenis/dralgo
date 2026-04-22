@@ -122,39 +122,18 @@ func TestParseProgram_Loops(t *testing.T) {
 tant que x > 0
     x = x - 1
 fin tant que
-
-pour i = 0; i < 10; i++
-    Afficher i
-fin pour
-
-pour chaque item dans liste
-    Afficher item
-fin pour
-
-fait
-    x++
-tant que x < 100
 `
 	prog, errs := ParseProgram(input)
 	if len(errs) != 0 {
 		t.Fatalf("unexpected errors: %v", errs)
 	}
 
-	if len(prog.Stmts) != 4 {
-		t.Fatalf("expected 4 statements, got %d", len(prog.Stmts))
+	if len(prog.Stmts) != 1 {
+		t.Fatalf("expected 1 statement, got %d", len(prog.Stmts))
 	}
 
 	if _, ok := prog.Stmts[0].(ast.WhileStmt); !ok {
 		t.Errorf("stmt 0 is not WhileStmt, got %T", prog.Stmts[0])
-	}
-	if _, ok := prog.Stmts[1].(ast.ForStmt); !ok {
-		t.Errorf("stmt 1 is not ForStmt, got %T", prog.Stmts[1])
-	}
-	if _, ok := prog.Stmts[2].(ast.ForEachStmt); !ok {
-		t.Errorf("stmt 2 is not ForEachStmt, got %T", prog.Stmts[2])
-	}
-	if _, ok := prog.Stmts[3].(ast.DoWhileStmt); !ok {
-		t.Errorf("stmt 3 is not DoWhileStmt, got %T", prog.Stmts[3])
 	}
 }
 
@@ -191,7 +170,6 @@ func TestParseProgram_Invalid_ReturnsErrors(t *testing.T) {
 		input string
 	}{
 		{"missing fin si", `si true alors Afficher 1`},
-		{"incomplete for", `pour i=0; i<10`},
 		{"bad expression", `x = 1 + * 2`},
 		{"unclosed string", `Afficher "unterminated`},
 		{"extra characters", `x = 1 }`},

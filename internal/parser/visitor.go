@@ -81,12 +81,6 @@ func (b *astBuilder) visitStmt(ctx gen.IStmtContext) ast.Stmt {
 		return b.visitIf(ctx.IfStmt())
 	case ctx.WhileStmt() != nil:
 		return b.visitWhile(ctx.WhileStmt())
-	case ctx.DoWhileStmt() != nil:
-		return b.visitDoWhile(ctx.DoWhileStmt())
-	case ctx.ForStmt() != nil:
-		return b.visitFor(ctx.ForStmt())
-	case ctx.ForEachStmt() != nil:
-		return b.visitForEach(ctx.ForEachStmt())
 	default:
 		// Should not happen if grammar and generated parser match.
 		b.addErr(ParseError{Msg: "internal error: unknown statement variant"})
@@ -183,72 +177,6 @@ func (b *astBuilder) visitWhile(ctx gen.IWhileStmtContext) ast.Stmt {
 	}
 	return ast.WhileStmt{
 		Cond: b.visitExpr(ctx.Expr()),
-		Body: body,
-		Span: b.spanOf(prc),
-	}
-}
-
-func (b *astBuilder) visitDoWhile(ctx gen.IDoWhileStmtContext) ast.Stmt {
-	prc := ctx.(antlr4.ParserRuleContext)
-	var body []ast.Stmt
-	if ctx.Block() != nil && ctx.Block().StmtList() != nil {
-		body = b.visitStmtList(ctx.Block().StmtList())
-	}
-	return ast.DoWhileStmt{
-		Body: body,
-		Cond: b.visitExpr(ctx.Expr()),
-		Span: b.spanOf(prc),
-	}
-}
-
-func (b *astBuilder) visitFor(ctx gen.IForStmtContext) ast.Stmt {
-	prc := ctx.(antlr4.ParserRuleContext)
-
-	var init ast.Stmt
-	if ctx.ForInit() != nil {
-		init = b.visitAssign(ctx.ForInit().AssignStmt())
-	}
-
-	var cond ast.Expr
-	if ctx.ForCond() != nil {
-		cond = b.visitExpr(ctx.ForCond().Expr())
-	}
-
-	var post ast.Stmt
-	if ctx.ForPost() != nil {
-		switch {
-		case ctx.ForPost().IncDecStmt() != nil:
-			post = b.visitIncDec(ctx.ForPost().IncDecStmt())
-		case ctx.ForPost().AssignStmt() != nil:
-			post = b.visitAssign(ctx.ForPost().AssignStmt())
-		default:
-			b.addErr(ParseError{Msg: "internal error: unexpected forPost variant"})
-		}
-	}
-
-	var body []ast.Stmt
-	if ctx.Block() != nil && ctx.Block().StmtList() != nil {
-		body = b.visitStmtList(ctx.Block().StmtList())
-	}
-
-	return ast.ForStmt{
-		Init: init,
-		Cond: cond,
-		Post: post,
-		Body: body,
-		Span: b.spanOf(prc),
-	}
-}
-
-func (b *astBuilder) visitForEach(ctx gen.IForEachStmtContext) ast.Stmt {
-	prc := ctx.(antlr4.ParserRuleContext)
-	var body []ast.Stmt
-	if ctx.Block() != nil && ctx.Block().StmtList() != nil {
-		body = b.visitStmtList(ctx.Block().StmtList())
-	}
-	return ast.ForEachStmt{
-		Var:  ctx.IDENT().GetText(),
-		Iter: b.visitExpr(ctx.Expr()),
 		Body: body,
 		Span: b.spanOf(prc),
 	}

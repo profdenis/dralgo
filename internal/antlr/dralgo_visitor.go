@@ -1,4 +1,4 @@
-// Code generated from /home/denis/projets/profdenis/dralgo/grammar/dralgo/DrAlgo.g4 by ANTLR 4.13.2. DO NOT EDIT.
+// Code generated from /home/denis/projets/profdenis/dralgo/grammar/dralgo/DrAlgo.g4 by ANTLR 4.13.1. DO NOT EDIT.
 
 package antlr // DrAlgo
 import "github.com/antlr4-go/antlr/v4"
@@ -45,24 +45,6 @@ type DrAlgoVisitor interface {
 
 	// Visit a parse tree produced by DrAlgoParser#whileStmt.
 	VisitWhileStmt(ctx *WhileStmtContext) interface{}
-
-	// Visit a parse tree produced by DrAlgoParser#doWhileStmt.
-	VisitDoWhileStmt(ctx *DoWhileStmtContext) interface{}
-
-	// Visit a parse tree produced by DrAlgoParser#forStmt.
-	VisitForStmt(ctx *ForStmtContext) interface{}
-
-	// Visit a parse tree produced by DrAlgoParser#forInit.
-	VisitForInit(ctx *ForInitContext) interface{}
-
-	// Visit a parse tree produced by DrAlgoParser#forCond.
-	VisitForCond(ctx *ForCondContext) interface{}
-
-	// Visit a parse tree produced by DrAlgoParser#forPost.
-	VisitForPost(ctx *ForPostContext) interface{}
-
-	// Visit a parse tree produced by DrAlgoParser#forEachStmt.
-	VisitForEachStmt(ctx *ForEachStmtContext) interface{}
 
 	// Visit a parse tree produced by DrAlgoParser#block.
 	VisitBlock(ctx *BlockContext) interface{}

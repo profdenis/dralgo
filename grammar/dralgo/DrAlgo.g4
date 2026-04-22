@@ -20,9 +20,6 @@ stmt
   | readIntStmt
   | ifStmt
   | whileStmt
-  | doWhileStmt
-  | forStmt
-  | forEachStmt
   ;
 
 // --- Statements ---
@@ -65,31 +62,6 @@ elsePart
 
 whileStmt
   : TANT_QUE expr sep+ block FIN_TANT_QUE
-  ;
-
-doWhileStmt
-  : FAIT sep+ block TANT_QUE expr
-  ;
-
-forStmt
-  : POUR forInit? SEMI forCond? SEMI forPost? sep+ block FIN_POUR
-  ;
-
-forInit
-  : assignStmt
-  ;
-
-forCond
-  : expr
-  ;
-
-forPost
-  : incDecStmt
-  | assignStmt
-  ;
-
-forEachStmt
-  : POUR_CHAQUE IDENT DANS expr sep+ block FIN_POUR
   ;
 
 block
@@ -168,11 +140,6 @@ SI        : [sS] [iI] ;
 SINON     : [sS] [iI] [nN] [oO] [nN] ;
 ALORS     : [aA] [lL] [oO] [rR] [sS] ;
 
-FAIT      : [fF] [aA] [iI] [tT] ;
-
-POUR      : [pP] [oO] [uU] [rR] ;
-DANS      : [dD] [aA] [nN] [sS] ;
-
 AFFICHER  : [aA] [fF] [fF] [iI] [cC] [hH] [eE] [rR] ;
 
 LIRE
@@ -182,9 +149,6 @@ LIRE
 LIRE_ENTIER
   : [lL] [iI] [rR] [eE] HWS+ [eE] [nN] [tT] [iI] [eE] [rR]
   ;
-
-// Multi-word / "end" keywords.
-// Using HWS+ keeps them tolerant to multiple spaces/tabs.
 
 SINON_SI
   : SINON HWS+ SI
@@ -200,14 +164,6 @@ TANT_QUE
 
 FIN_TANT_QUE
   : [fF] [iI] [nN] HWS+ TANT_QUE
-  ;
-
-POUR_CHAQUE
-  : POUR HWS+ [cC] [hH] [aA] [qQ] [uU] [eE]
-  ;
-
-FIN_POUR
-  : [fF] [iI] [nN] HWS+ POUR
   ;
 
 // --- Operators / punctuation ---

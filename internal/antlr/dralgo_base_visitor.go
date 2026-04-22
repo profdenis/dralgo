@@ -1,4 +1,4 @@
-// Code generated from /home/denis/projets/profdenis/dralgo/grammar/dralgo/DrAlgo.g4 by ANTLR 4.13.2. DO NOT EDIT.
+// Code generated from /home/denis/projets/profdenis/dralgo/grammar/dralgo/DrAlgo.g4 by ANTLR 4.13.1. DO NOT EDIT.
 
 package antlr // DrAlgo
 import "github.com/antlr4-go/antlr/v4"
@@ -56,30 +56,6 @@ func (v *BaseDrAlgoVisitor) VisitElsePart(ctx *ElsePartContext) interface{} {
 }
 
 func (v *BaseDrAlgoVisitor) VisitWhileStmt(ctx *WhileStmtContext) interface{} {
-	return v.VisitChildren(ctx)
-}
-
-func (v *BaseDrAlgoVisitor) VisitDoWhileStmt(ctx *DoWhileStmtContext) interface{} {
-	return v.VisitChildren(ctx)
-}
-
-func (v *BaseDrAlgoVisitor) VisitForStmt(ctx *ForStmtContext) interface{} {
-	return v.VisitChildren(ctx)
-}
-
-func (v *BaseDrAlgoVisitor) VisitForInit(ctx *ForInitContext) interface{} {
-	return v.VisitChildren(ctx)
-}
-
-func (v *BaseDrAlgoVisitor) VisitForCond(ctx *ForCondContext) interface{} {
-	return v.VisitChildren(ctx)
-}
-
-func (v *BaseDrAlgoVisitor) VisitForPost(ctx *ForPostContext) interface{} {
-	return v.VisitChildren(ctx)
-}
-
-func (v *BaseDrAlgoVisitor) VisitForEachStmt(ctx *ForEachStmtContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
