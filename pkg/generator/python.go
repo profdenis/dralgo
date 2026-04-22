@@ -33,7 +33,7 @@ func (g *PythonGenerator) generateNode(buf *bytes.Buffer, node *models.Node, ind
 
 	switch node.Type {
 	case models.NodeStart:
-		buf.WriteString(fmt.Sprintf("%sprint(\"Starting flowchart...\")\n", indent))
+		// buf.WriteString(fmt.Sprintf("%sprint(\"Starting flowchart...\")\n", indent))
 	case models.NodeAction:
 		buf.WriteString(fmt.Sprintf("%sprint(\"%s\")\n", indent, node.Content))
 	case models.NodeAssignment:
@@ -75,7 +75,7 @@ func (g *PythonGenerator) generateNode(buf *bytes.Buffer, node *models.Node, ind
 		}
 		return // Les enfants sont déjà gérés
 	case models.NodeEnd:
-		buf.WriteString(fmt.Sprintf("%sprint(\"Ending flowchart...\")\n", indent))
+		// buf.WriteString(fmt.Sprintf("%sprint(\"Ending flowchart...\")\n", indent))
 	}
 
 	for _, edge := range node.Next {

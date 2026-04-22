@@ -19,6 +19,7 @@ func NewGenerator() *Generator {
 }
 
 func (g *Generator) Generate(flow *ir.Flowchart) (string, error) {
+	g.visited = make(map[int]bool)
 	var buf bytes.Buffer
 	buf.WriteString("def main():\n")
 
@@ -26,15 +27,15 @@ func (g *Generator) Generate(flow *ir.Flowchart) (string, error) {
 	// For this version, let's try to keep it simple and use recursive generation
 	// for structured blocks, but we need to be careful with NodeMerge.
 
-	g.genNode(&buf, flow.Start, "    ")
+	g.genNode(&buf, flow.Start, "    ", nil)
 
 	buf.WriteString("\nif __name__ == \"__main__\":\n")
 	buf.WriteString("    main()\n")
 	return buf.String(), nil
 }
 
-func (g *Generator) genNode(buf *bytes.Buffer, n *ir.Node, indent string) {
-	if n == nil || g.visited[n.ID] {
+func (g *Generator) genNode(buf *bytes.Buffer, n *ir.Node, indent string, stopAt *ir.Node) {
+	if n == nil || g.visited[n.ID] || n == stopAt {
 		return
 	}
 
@@ -51,13 +52,13 @@ func (g *Generator) genNode(buf *bytes.Buffer, n *ir.Node, indent string) {
 			g.genStmt(buf, stmt, indent)
 		}
 		if n.Next != nil {
-			g.genNode(buf, n.Next.Target, indent)
+			g.genNode(buf, n.Next.Target, indent, stopAt)
 		}
 
 	case ir.NodeMerge:
 		// Just pass through
 		if n.Next != nil {
-			g.genNode(buf, n.Next.Target, indent)
+			g.genNode(buf, n.Next.Target, indent, stopAt)
 		}
 
 	case ir.NodeDecision:
@@ -66,20 +67,26 @@ func (g *Generator) genNode(buf *bytes.Buffer, n *ir.Node, indent string) {
 		isLoop := g.isReachable(n.Then.Target, n)
 
 		if isLoop {
+			// Find exit merge node for the loop
+			mergeNode := n.Else.Target
+
 			buf.WriteString(fmt.Sprintf("%swhile %s:\n", indent, g.exprStr(n.Cond)))
 			g.visited[n.ID] = true // Mark to avoid recursion when coming back from body
-			g.genNode(buf, n.Then.Target, indent+"    ")
+			g.genNode(buf, n.Then.Target, indent+"    ", n)
 			g.visited[n.ID] = false
 
-			// After loop body, continue with Else branch (exit loop)
-			if n.Else != nil {
-				g.genNode(buf, n.Else.Target, indent)
+			// After loop body, continue with the merge node (exit loop)
+			if mergeNode != nil {
+				g.genNode(buf, mergeNode, indent, stopAt)
 			}
 		} else {
 			// It's an If
+			// Try to find the merge node (the one both branches eventually lead to)
+			mergeNode := g.findMergeNode(n)
+
 			buf.WriteString(fmt.Sprintf("%sif %s:\n", indent, g.exprStr(n.Cond)))
 			if n.Then != nil {
-				g.genNode(buf, n.Then.Target, indent+"    ")
+				g.genNode(buf, n.Then.Target, indent+"    ", mergeNode)
 			} else {
 				buf.WriteString(indent + "    pass\n")
 			}
@@ -90,7 +97,7 @@ func (g *Generator) genNode(buf *bytes.Buffer, n *ir.Node, indent string) {
 					buf.WriteString(indent + "elif " + g.exprStr(n.Else.Target.Cond) + ":\n")
 					g.visited[n.Else.Target.ID] = true
 					if n.Else.Target.Then != nil {
-						g.genNode(buf, n.Else.Target.Then.Target, indent+"    ")
+						g.genNode(buf, n.Else.Target.Then.Target, indent+"    ", mergeNode)
 					} else {
 						buf.WriteString(indent + "    pass\n")
 					}
@@ -98,21 +105,26 @@ func (g *Generator) genNode(buf *bytes.Buffer, n *ir.Node, indent string) {
 					if n.Else.Target.Else != nil {
 						// Recurse for further elifs or final else
 						g.visited[n.Else.Target.ID] = false
-						g.genElse(buf, n.Else.Target.Else.Target, indent)
+						g.genElse(buf, n.Else.Target.Else.Target, indent, mergeNode)
 					}
-				} else if n.Else.Target.Type == ir.NodeMerge && n.Else.Target.Next == nil {
+				} else if n.Else.Target.Type == ir.NodeMerge && n.Else.Target.Next == nil && n.Else.Target == mergeNode {
 					// skip empty else
 				} else {
 					buf.WriteString(indent + "else:\n")
-					g.genNode(buf, n.Else.Target, indent+"    ")
+					g.genNode(buf, n.Else.Target, indent+"    ", mergeNode)
 				}
+			}
+
+			// Continue after the if-else block from the merge node
+			if mergeNode != nil {
+				g.genNode(buf, mergeNode, indent, stopAt)
 			}
 		}
 	}
 }
 
-func (g *Generator) genElse(buf *bytes.Buffer, n *ir.Node, indent string) {
-	if n == nil || g.visited[n.ID] {
+func (g *Generator) genElse(buf *bytes.Buffer, n *ir.Node, indent string, stopAt *ir.Node) {
+	if n == nil || g.visited[n.ID] || n == stopAt {
 		return
 	}
 
@@ -120,20 +132,44 @@ func (g *Generator) genElse(buf *bytes.Buffer, n *ir.Node, indent string) {
 		buf.WriteString(indent + "elif " + g.exprStr(n.Cond) + ":\n")
 		g.visited[n.ID] = true
 		if n.Then != nil {
-			g.genNode(buf, n.Then.Target, indent+"    ")
+			g.genNode(buf, n.Then.Target, indent+"    ", stopAt)
 		} else {
 			buf.WriteString(indent + "    pass\n")
 		}
 		if n.Else != nil {
 			g.visited[n.ID] = false
-			g.genElse(buf, n.Else.Target, indent)
+			g.genElse(buf, n.Else.Target, indent, stopAt)
 		}
-	} else if n.Type == ir.NodeMerge && n.Next == nil {
+	} else if n.Type == ir.NodeMerge && n.Next == nil && n == stopAt {
 		// skip empty
 	} else {
 		buf.WriteString(indent + "else:\n")
-		g.genNode(buf, n, indent+"    ")
+		g.genNode(buf, n, indent+"    ", stopAt)
 	}
+}
+
+func (g *Generator) findMergeNode(n *ir.Node) *ir.Node {
+	// Simple heuristic: follow Then branch until we hit a Merge node
+	// This works because of how our IR is constructed in lower.go
+	curr := n.Then.Target
+	visited := make(map[int]bool)
+	for curr != nil && !visited[curr.ID] {
+		if curr.Type == ir.NodeMerge {
+			return curr
+		}
+		visited[curr.ID] = true
+		if curr.Next != nil {
+			curr = curr.Next.Target
+		} else if curr.Type == ir.NodeDecision {
+			// For nested decisions, we need to be careful.
+			// The structured IR ensures there is one merge node.
+			// Let's just follow one branch.
+			curr = curr.Then.Target
+		} else {
+			break
+		}
+	}
+	return nil
 }
 
 func (g *Generator) isReachable(start, target *ir.Node) bool {
@@ -206,9 +242,9 @@ func (g *Generator) exprStr(e ast.Expr) string {
 		}
 		return strings.ReplaceAll(x.Text, "_", "")
 	case ast.BinaryExpr:
-		return fmt.Sprintf("(%s %s %s)", g.exprStr(x.LHS), string(x.Op), g.exprStr(x.RHS))
+		return fmt.Sprintf("%s %s %s", g.exprStr(x.LHS), string(x.Op), g.exprStr(x.RHS))
 	case ast.UnaryExpr:
-		return fmt.Sprintf("(%s%s)", string(x.Op), g.exprStr(x.X))
+		return fmt.Sprintf("%s%s", string(x.Op), g.exprStr(x.X))
 	case ast.ListExpr:
 		elems := make([]string, len(x.Elems))
 		for i, el := range x.Elems {

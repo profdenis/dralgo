@@ -19,19 +19,20 @@ func NewGenerator() *Generator {
 }
 
 func (g *Generator) Generate(flow *ir.Flowchart) (string, error) {
+	g.visited = make(map[int]bool)
 	var buf bytes.Buffer
 	buf.WriteString("@startuml\n")
 	buf.WriteString("start\n")
 
-	g.genNode(&buf, flow.Start)
+	g.genNode(&buf, flow.Start, nil)
 
 	buf.WriteString("stop\n")
 	buf.WriteString("@enduml\n")
 	return buf.String(), nil
 }
 
-func (g *Generator) genNode(buf *bytes.Buffer, n *ir.Node) {
-	if n == nil || g.visited[n.ID] {
+func (g *Generator) genNode(buf *bytes.Buffer, n *ir.Node, stopAt *ir.Node) {
+	if n == nil || g.visited[n.ID] || n == stopAt {
 		return
 	}
 
@@ -46,12 +47,12 @@ func (g *Generator) genNode(buf *bytes.Buffer, n *ir.Node) {
 			buf.WriteString(";\n")
 		}
 		if n.Next != nil {
-			g.genNode(buf, n.Next.Target)
+			g.genNode(buf, n.Next.Target, stopAt)
 		}
 
 	case ir.NodeMerge:
 		if n.Next != nil {
-			g.genNode(buf, n.Next.Target)
+			g.genNode(buf, n.Next.Target, stopAt)
 		}
 
 	case ir.NodeDecision:
@@ -59,35 +60,21 @@ func (g *Generator) genNode(buf *bytes.Buffer, n *ir.Node) {
 		isLoop := g.isReachable(n.Then.Target, n)
 
 		if isLoop {
-			// Check if it's a 'tant que' (While) or 'fait ... tant que' (DoWhile)
-			// For DoWhile, the entry is bodyStart, and the decision is after bodyEnd.
-			// But our lowering might have slightly different structures.
-			// In our lowering for DoWhile: current -> bodyStart -> bodyEnd -> decision -> (Then -> bodyStart, Else -> merge)
-			// In our lowering for While: current -> decision -> (Then -> bodyStart -> bodyEnd -> decision, Else -> merge)
-
-			// If we reached this decision node and it's a loop, let's see where we came from.
-			// This is tricky without more context.
-			// Let's use a simpler approach for PlantUML: just use if/else and explicit labels if needed?
-			// No, PlantUML structured is better.
-
-			// Let's look at the structure:
-			// While loop: entry points to Decision.
-			// DoWhile loop: entry points to Body, which then points to Decision.
-
-			// If g.visited[n.ID] is false, we are entering the loop.
+			mergeNode := n.Else.Target
 			buf.WriteString(fmt.Sprintf("while (%s) is (vrai)\n", g.exprStr(n.Cond)))
 			g.visited[n.ID] = true
-			g.genNode(buf, n.Then.Target)
+			g.genNode(buf, n.Then.Target, n)
 			g.visited[n.ID] = false
 			buf.WriteString("endwhile (faux)\n")
 
-			if n.Else != nil {
-				g.genNode(buf, n.Else.Target)
+			if mergeNode != nil {
+				g.genNode(buf, mergeNode, stopAt)
 			}
 		} else {
+			mergeNode := g.findMergeNode(n)
 			buf.WriteString(fmt.Sprintf("if (%s) then (vrai)\n", g.exprStr(n.Cond)))
 			if n.Then != nil {
-				g.genNode(buf, n.Then.Target)
+				g.genNode(buf, n.Then.Target, mergeNode)
 			}
 
 			if n.Else != nil {
@@ -96,29 +83,32 @@ func (g *Generator) genNode(buf *bytes.Buffer, n *ir.Node) {
 					buf.WriteString(fmt.Sprintf("(faux) elseif (%s) then (vrai)\n", g.exprStr(n.Else.Target.Cond)))
 					g.visited[n.Else.Target.ID] = true
 					if n.Else.Target.Then != nil {
-						g.genNode(buf, n.Else.Target.Then.Target)
+						g.genNode(buf, n.Else.Target.Then.Target, mergeNode)
 					}
 					if n.Else.Target.Else != nil {
 						g.visited[n.Else.Target.ID] = false
-						g.genElse(buf, n.Else.Target.Else.Target)
+						g.genElse(buf, n.Else.Target.Else.Target, mergeNode)
 					}
-				} else if n.Else.Target.Type == ir.NodeMerge && n.Else.Target.Next == nil {
+				} else if n.Else.Target.Type == ir.NodeMerge && n.Else.Target.Next == nil && n.Else.Target == mergeNode {
 					buf.WriteString("endif\n")
 				} else {
 					buf.WriteString("else (faux)\n")
-					g.genNode(buf, n.Else.Target)
+					g.genNode(buf, n.Else.Target, mergeNode)
 					buf.WriteString("endif\n")
 				}
 			} else {
 				buf.WriteString("endif\n")
 			}
+
+			if mergeNode != nil {
+				g.genNode(buf, mergeNode, stopAt)
+			}
 		}
 	}
 }
 
-func (g *Generator) genElse(buf *bytes.Buffer, n *ir.Node) {
-	if n == nil || g.visited[n.ID] {
-		buf.WriteString("endif\n")
+func (g *Generator) genElse(buf *bytes.Buffer, n *ir.Node, stopAt *ir.Node) {
+	if n == nil || g.visited[n.ID] || n == stopAt {
 		return
 	}
 
@@ -126,21 +116,45 @@ func (g *Generator) genElse(buf *bytes.Buffer, n *ir.Node) {
 		buf.WriteString(fmt.Sprintf("(faux) elseif (%s) then (vrai)\n", g.exprStr(n.Cond)))
 		g.visited[n.ID] = true
 		if n.Then != nil {
-			g.genNode(buf, n.Then.Target)
+			g.genNode(buf, n.Then.Target, stopAt)
 		}
 		if n.Else != nil {
 			g.visited[n.ID] = false
-			g.genElse(buf, n.Else.Target)
+			g.genElse(buf, n.Else.Target, stopAt)
 		} else {
 			buf.WriteString("endif\n")
 		}
-	} else if n.Type == ir.NodeMerge && n.Next == nil {
+	} else if n.Type == ir.NodeMerge && n.Next == nil && n == stopAt {
 		buf.WriteString("endif\n")
 	} else {
 		buf.WriteString("else (faux)\n")
-		g.genNode(buf, n)
+		g.genNode(buf, n, stopAt)
 		buf.WriteString("endif\n")
 	}
+}
+
+func (g *Generator) findMergeNode(n *ir.Node) *ir.Node {
+	// Simple heuristic: follow Then branch until we hit a Merge node
+	// This works because of how our IR is constructed in lower.go
+	curr := n.Then.Target
+	visited := make(map[int]bool)
+	for curr != nil && !visited[curr.ID] {
+		if curr.Type == ir.NodeMerge {
+			return curr
+		}
+		visited[curr.ID] = true
+		if curr.Next != nil {
+			curr = curr.Next.Target
+		} else if curr.Type == ir.NodeDecision {
+			// For nested decisions, we need to be careful.
+			// The structured IR ensures there is one merge node.
+			// Let's just follow one branch.
+			curr = curr.Then.Target
+		} else {
+			break
+		}
+	}
+	return nil
 }
 
 func (g *Generator) isReachable(start, target *ir.Node) bool {
