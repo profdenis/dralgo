@@ -5,6 +5,9 @@ import (
 	"fmt"
 	"os"
 
+	gogen "dralgo/internal/gen/go"
+	"dralgo/internal/gen/java"
+	jsgen "dralgo/internal/gen/js"
 	"dralgo/internal/gen/plantuml"
 	"dralgo/internal/gen/python"
 	"dralgo/internal/ir"
@@ -45,6 +48,15 @@ func main() {
 	switch *lang {
 	case "python":
 		g := python.NewGenerator()
+		generated, genErr = g.Generate(flow)
+	case "go":
+		g := gogen.NewGenerator()
+		generated, genErr = g.Generate(flow)
+	case "js", "javascript":
+		g := jsgen.NewGenerator()
+		generated, genErr = g.Generate(flow)
+	case "java":
+		g := java.NewGenerator()
 		generated, genErr = g.Generate(flow)
 	case "puml", "plantuml":
 		g := plantuml.NewGenerator()
