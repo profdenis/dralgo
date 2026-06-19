@@ -9,17 +9,20 @@ import (
 )
 
 type Generator struct {
-	visited map[int]bool
+	visited      map[int]bool
+	declaredVars map[string]bool
 }
 
 func NewGenerator() *Generator {
 	return &Generator{
-		visited: make(map[int]bool),
+		visited:      make(map[int]bool),
+		declaredVars: make(map[string]bool),
 	}
 }
 
 func (g *Generator) Generate(flow *ir.Flowchart) (string, error) {
 	g.visited = make(map[int]bool)
+	g.declaredVars = make(map[string]bool)
 	var buf bytes.Buffer
 	buf.WriteString("(async () => {\n")
 
@@ -87,7 +90,7 @@ func (g *Generator) genNode(buf *bytes.Buffer, n *ir.Node, indent string, stopAt
 					} else {
 						buf.WriteString("\n")
 					}
-				} else if n.Else.Target.Type == ir.NodeMerge && n.Else.Target.Next == nil && n.Else.Target == mergeNode {
+				} else if n.Else.Target == mergeNode {
 					buf.WriteString("\n")
 				} else {
 					buf.WriteString(" else {\n")
@@ -123,7 +126,7 @@ func (g *Generator) genElse(buf *bytes.Buffer, n *ir.Node, indent string, stopAt
 		} else {
 			buf.WriteString("\n")
 		}
-	} else if n.Type == ir.NodeMerge && n.Next == nil && n == stopAt {
+	} else if n == stopAt {
 		buf.WriteString("\n")
 	} else {
 		buf.WriteString(" else {\n")
@@ -190,7 +193,12 @@ func (g *Generator) isReachable(start, target *ir.Node) bool {
 func (g *Generator) genStmt(buf *bytes.Buffer, stmt ast.Stmt, indent string) {
 	switch s := stmt.(type) {
 	case ast.AssignStmt:
-		buf.WriteString(fmt.Sprintf("%slet %s = %s;\n", indent, s.Name, g.exprStr(s.Value)))
+		kw := "let "
+		if g.declaredVars[s.Name] {
+			kw = ""
+		}
+		buf.WriteString(fmt.Sprintf("%s%s%s = %s;\n", indent, kw, s.Name, g.exprStr(s.Value)))
+		g.declaredVars[s.Name] = true
 	case ast.PrintStmt:
 		args := make([]string, len(s.Args))
 		for i, a := range s.Args {
@@ -198,9 +206,19 @@ func (g *Generator) genStmt(buf *bytes.Buffer, stmt ast.Stmt, indent string) {
 		}
 		buf.WriteString(fmt.Sprintf("%sconsole.log(%s);\n", indent, strings.Join(args, ", ")))
 	case ast.ReadStmt:
-		buf.WriteString(fmt.Sprintf("%slet %s = await new Promise(resolve => process.stdin.once('data', d => resolve(d.toString().trim())));\n", indent, s.Name))
+		kw := "let "
+		if g.declaredVars[s.Name] {
+			kw = ""
+		}
+		buf.WriteString(fmt.Sprintf("%s%s%s = await new Promise(resolve => process.stdin.once('data', d => resolve(d.toString().trim())));\n", indent, kw, s.Name))
+		g.declaredVars[s.Name] = true
 	case ast.ReadIntStmt:
-		buf.WriteString(fmt.Sprintf("%slet %s = parseInt(await new Promise(resolve => process.stdin.once('data', d => resolve(d.toString().trim()))));\n", indent, s.Name))
+		kw := "let "
+		if g.declaredVars[s.Name] {
+			kw = ""
+		}
+		buf.WriteString(fmt.Sprintf("%s%s%s = parseInt(await new Promise(resolve => process.stdin.once('data', d => resolve(d.toString().trim()))));\n", indent, kw, s.Name))
+		g.declaredVars[s.Name] = true
 	case ast.IncDecStmt:
 		buf.WriteString(fmt.Sprintf("%s%s%s;\n", indent, s.Name, string(s.Op)))
 	}

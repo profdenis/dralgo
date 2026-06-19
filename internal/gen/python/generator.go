@@ -72,7 +72,11 @@ func (g *Generator) genNode(buf *bytes.Buffer, n *ir.Node, indent string, stopAt
 
 			buf.WriteString(fmt.Sprintf("%swhile %s:\n", indent, g.exprStr(n.Cond)))
 			g.visited[n.ID] = true // Mark to avoid recursion when coming back from body
+			posBefore := buf.Len()
 			g.genNode(buf, n.Then.Target, indent+"    ", n)
+			if buf.Len() == posBefore {
+				buf.WriteString(indent + "    pass\n")
+			}
 			g.visited[n.ID] = false
 
 			// After loop body, continue with the merge node (exit loop)
@@ -85,9 +89,9 @@ func (g *Generator) genNode(buf *bytes.Buffer, n *ir.Node, indent string, stopAt
 			mergeNode := g.findMergeNode(n)
 
 			buf.WriteString(fmt.Sprintf("%sif %s:\n", indent, g.exprStr(n.Cond)))
-			if n.Then != nil {
-				g.genNode(buf, n.Then.Target, indent+"    ", mergeNode)
-			} else {
+			posBefore := buf.Len()
+			g.genNode(buf, n.Then.Target, indent+"    ", mergeNode)
+			if buf.Len() == posBefore {
 				buf.WriteString(indent + "    pass\n")
 			}
 
@@ -96,9 +100,9 @@ func (g *Generator) genNode(buf *bytes.Buffer, n *ir.Node, indent string, stopAt
 				if n.Else.Target.Type == ir.NodeDecision && !g.isReachable(n.Else.Target.Then.Target, n.Else.Target) {
 					buf.WriteString(indent + "elif " + g.exprStr(n.Else.Target.Cond) + ":\n")
 					g.visited[n.Else.Target.ID] = true
-					if n.Else.Target.Then != nil {
-						g.genNode(buf, n.Else.Target.Then.Target, indent+"    ", mergeNode)
-					} else {
+					posBeforeElsif := buf.Len()
+					g.genNode(buf, n.Else.Target.Then.Target, indent+"    ", mergeNode)
+					if buf.Len() == posBeforeElsif {
 						buf.WriteString(indent + "    pass\n")
 					}
 
@@ -107,11 +111,15 @@ func (g *Generator) genNode(buf *bytes.Buffer, n *ir.Node, indent string, stopAt
 						g.visited[n.Else.Target.ID] = false
 						g.genElse(buf, n.Else.Target.Else.Target, indent, mergeNode)
 					}
-				} else if n.Else.Target.Type == ir.NodeMerge && n.Else.Target.Next == nil && n.Else.Target == mergeNode {
+				} else if n.Else.Target == mergeNode {
 					// skip empty else
 				} else {
 					buf.WriteString(indent + "else:\n")
+					posBeforeElse := buf.Len()
 					g.genNode(buf, n.Else.Target, indent+"    ", mergeNode)
+					if buf.Len() == posBeforeElse {
+						buf.WriteString(indent + "    pass\n")
+					}
 				}
 			}
 
@@ -131,20 +139,24 @@ func (g *Generator) genElse(buf *bytes.Buffer, n *ir.Node, indent string, stopAt
 	if n.Type == ir.NodeDecision && !g.isReachable(n.Then.Target, n) {
 		buf.WriteString(indent + "elif " + g.exprStr(n.Cond) + ":\n")
 		g.visited[n.ID] = true
-		if n.Then != nil {
-			g.genNode(buf, n.Then.Target, indent+"    ", stopAt)
-		} else {
+		posBefore := buf.Len()
+		g.genNode(buf, n.Then.Target, indent+"    ", stopAt)
+		if buf.Len() == posBefore {
 			buf.WriteString(indent + "    pass\n")
 		}
 		if n.Else != nil {
 			g.visited[n.ID] = false
 			g.genElse(buf, n.Else.Target, indent, stopAt)
 		}
-	} else if n.Type == ir.NodeMerge && n.Next == nil && n == stopAt {
+	} else if n == stopAt {
 		// skip empty
 	} else {
 		buf.WriteString(indent + "else:\n")
+		posBefore := buf.Len()
 		g.genNode(buf, n, indent+"    ", stopAt)
+		if buf.Len() == posBefore {
+			buf.WriteString(indent + "    pass\n")
+		}
 	}
 }
 

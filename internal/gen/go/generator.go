@@ -86,13 +86,14 @@ func (g *Generator) genNode(buf *bytes.Buffer, n *ir.Node, indent string, stopAt
 					if n.Else.Target.Then != nil {
 						g.genNode(buf, n.Else.Target.Then.Target, indent+"    ", mergeNode)
 					}
+					buf.WriteString(fmt.Sprintf("%s}", indent))
 					if n.Else.Target.Else != nil {
 						g.visited[n.Else.Target.ID] = false
 						g.genElse(buf, n.Else.Target.Else.Target, indent, mergeNode)
 					} else {
-						buf.WriteString(fmt.Sprintf("%s}", indent))
+						buf.WriteString("\n")
 					}
-				} else if n.Else.Target.Type == ir.NodeMerge && n.Else.Target.Next == nil && n.Else.Target == mergeNode {
+				} else if n.Else.Target == mergeNode {
 					buf.WriteString("\n")
 				} else {
 					buf.WriteString(" else {\n")
@@ -112,7 +113,7 @@ func (g *Generator) genNode(buf *bytes.Buffer, n *ir.Node, indent string, stopAt
 
 func (g *Generator) genElse(buf *bytes.Buffer, n *ir.Node, indent string, stopAt *ir.Node) {
 	if n == nil || g.visited[n.ID] || n == stopAt {
-		buf.WriteString(fmt.Sprintf("%s}\n", indent))
+		buf.WriteString("\n")
 		return
 	}
 
@@ -122,14 +123,15 @@ func (g *Generator) genElse(buf *bytes.Buffer, n *ir.Node, indent string, stopAt
 		if n.Then != nil {
 			g.genNode(buf, n.Then.Target, indent+"    ", stopAt)
 		}
+		buf.WriteString(fmt.Sprintf("%s}", indent))
 		if n.Else != nil {
 			g.visited[n.ID] = false
 			g.genElse(buf, n.Else.Target, indent, stopAt)
 		} else {
-			buf.WriteString(fmt.Sprintf("%s}\n", indent))
+			buf.WriteString("\n")
 		}
-	} else if n.Type == ir.NodeMerge && n.Next == nil && n == stopAt {
-		buf.WriteString(fmt.Sprintf("%s}\n", indent))
+	} else if n == stopAt {
+		buf.WriteString("\n")
 	} else {
 		buf.WriteString(" else {\n")
 		g.genNode(buf, n, indent+"    ", stopAt)
