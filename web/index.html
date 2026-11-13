@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DrAlgo Web</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="wasm_exec.js"></script>
+</head>
+<body>
+    <h3>DrAlgo</h3>
+
+    <div id="layout" class="layout">
+        <div id="editor-pane" class="editor-pane">
+            <div class="controls">
+                Exemple :
+                <select id="example-select">
+                    <option value="">Nouveau</option>
+                </select>
+                <button id="layout-toggle-button" type="button" aria-pressed="false">Mode côte à côte</button>
+                <button id="theme-toggle-button" type="button" aria-pressed="false">Thème sombre</button>
+            </div>
+
+            <div class="zoom-toolbar" data-zoom-target="algo-input">
+                <span>Taille du texte :</span>
+                <button type="button" data-zoom-action="out">A−</button>
+                <button type="button" data-zoom-action="in">A+</button>
+                <button type="button" data-zoom-action="reset">Réinitialiser</button>
+            </div>
+            <textarea id="algo-input" placeholder="entier x, y; x = 5; y = x + 2;"></textarea>
+
+            <div class="controls">
+                Langage cible :
+                <select id="lang-select">
+                    <option value="puml">PlantUML</option>
+                    <option value="python">Python</option>
+                    <option value="go">Go</option>
+                    <option value="js">JavaScript</option>
+                    <option value="java">Java</option>
+                </select>
+                <button id="generate-button">Générer</button>
+            </div>
+        </div>
+
+        <div id="main-resizer" class="resizer main-resizer"></div>
+
+        <div class="result-container">
+            <div class="diagram-column" style="flex: 0 0 66%;">
+                <div class="diagram-toolbar">
+                    <button id="zoom-in-button">Zoom +</button>
+                    <button id="zoom-out-button">Zoom −</button>
+                    <button id="zoom-reset-button">Réinitialiser</button>
+                </div>
+                <div id="diagram-panel" class="image-container"></div>
+            </div>
+            <div id="resizer" class="resizer"></div>
+            <div class="code-column" style="flex: 1;">
+                <div class="zoom-toolbar" data-zoom-target="code-output">
+                    <span>Taille du texte :</span>
+                    <button type="button" data-zoom-action="out">A−</button>
+                    <button type="button" data-zoom-action="in">A+</button>
+                    <button type="button" data-zoom-action="reset">Réinitialiser</button>
+                </div>
+                <div id="code-output" class="output"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pako/2.1.0/pako.min.js"></script>
+    <script type="module" src="app.js"></script>
+</body>
+</html>

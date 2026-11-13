@@ -1,0 +1,32 @@
+[
+  {
+    "id": "01_expressions",
+    "title": "Expressions",
+    "source": "// 01_expressions.algo\n// Test des opérateurs arithmétiques et de la priorité\n\na = 10\nb = 3\nc = a + b * 2\nd = (a + b) * 2\ne = a ** b // Puissance\nf = a % b  // Modulo\n\nAfficher \"a =\", a\nAfficher \"b =\", b\nAfficher \"a + b * 2 =\", c\nAfficher \"(a + b) * 2 =\", d\nAfficher \"a ** b =\", e\nAfficher \"a % b =\", f\n"
+  },
+  {
+    "id": "02_conditions",
+    "title": "Conditions",
+    "source": "// 02_conditions.algo\n// Test des structures de contrôle Si / Sinon Si / Sinon\n\nscore = 85\n\nsi score \u003e= 90 alors\n    Afficher \"Excellent\"\nsinon si score \u003e= 70 alors\n    Afficher \"Très bien\"\nsinon si score \u003e= 50 alors\n    Afficher \"Passable\"\nsinon\n    Afficher \"Échec\"\nfin si\n\nx = -5\nsi x \u003c 0 alors\n    Afficher \"x est négatif\"\nfin si\n"
+  },
+  {
+    "id": "03_tant_que",
+    "title": "Tant que",
+    "source": "// 03_tant_que.algo\n// Test de la boucle Tant Que\n\ncompteur = 5\n\nTant Que compteur \u003e 0\n    Afficher \"Compte à rebours :\", compteur\n    compteur = compteur - 1\nFin Tant Que\n\nAfficher \"Décollage !\"\n\n// Test Tant Que avec une variable incrémentée\ni = 0\nTant Que i \u003c 3\n    Afficher \"i =\", i\n    i++\nFin Tant Que\n"
+  },
+  {
+    "id": "04_pour",
+    "title": "Pour",
+    "source": "// 04_pour.algo (converti en tant que)\n// Test des boucles tant que (remplace pour et pour chaque)\n\nAfficher \"Boucle Pour classique (converti) :\"\ni = 0\ntant que i \u003c 5\n    Afficher \"Valeur de i :\", i\n    i++\nfin tant que\n\nAfficher \"Pas de boucle Pour Chaque (non supporté) :\"\n"
+  },
+  {
+    "id": "05_entrees_sorties",
+    "title": "Entrees sorties",
+    "source": "// 05_entrees_sorties.algo\n// Test des instructions Lire et Afficher\n\nAfficher \"Quel est votre nom ?\"\nLire nom\n\nAfficher \"Quel est votre âge ?\"\nLire Entier age\n\nAfficher \"Bonjour\", nom, \"!\"\nsi age \u003e= 18 alors\n    Afficher \"Vous êtes majeur.\"\nsinon\n    Afficher \"Vous êtes mineur.\"\nfin si\n"
+  },
+  {
+    "id": "06_listes",
+    "title": "Listes",
+    "source": "// 06_listes.algo\n// Test des listes et opérations de base\n\nma_liste = [1, 2, 3, [4, 5], \"texte\"]\nAfficher \"Ma liste :\", ma_liste\n\nvide = []\nAfficher \"Liste vide :\", vide\n\n// On peut utiliser Pour Chaque sur une liste littérale\nsomme = 0\nPour Chaque n Dans [11, 2, 31, 14, 5]\n    somme = somme + n\nFin Pour\n\nAfficher \"Somme des nombres :\", somme\n"
+  }
+]

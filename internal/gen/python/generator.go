@@ -254,7 +254,15 @@ func (g *Generator) exprStr(e ast.Expr) string {
 		}
 		return strings.ReplaceAll(x.Text, "_", "")
 	case ast.BinaryExpr:
-		return fmt.Sprintf("%s %s %s", g.exprStr(x.LHS), string(x.Op), g.exprStr(x.RHS))
+		lhs := g.exprStr(x.LHS)
+		if ast.NeedsParens(x.Op, x.LHS, false) {
+			lhs = "(" + lhs + ")"
+		}
+		rhs := g.exprStr(x.RHS)
+		if ast.NeedsParens(x.Op, x.RHS, true) {
+			rhs = "(" + rhs + ")"
+		}
+		return fmt.Sprintf("%s %s %s", lhs, string(x.Op), rhs)
 	case ast.UnaryExpr:
 		return fmt.Sprintf("%s%s", string(x.Op), g.exprStr(x.X))
 	case ast.ListExpr:

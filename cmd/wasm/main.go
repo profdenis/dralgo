@@ -4,11 +4,7 @@ import (
 	"fmt"
 	"syscall/js"
 
-	gogen "dralgo/internal/gen/go"
-	"dralgo/internal/gen/java"
-	jsgen "dralgo/internal/gen/js"
-	"dralgo/internal/gen/plantuml"
-	"dralgo/internal/gen/python"
+	"dralgo/internal/gen"
 	"dralgo/internal/ir"
 	"dralgo/internal/parser"
 )
@@ -24,7 +20,7 @@ func main() {
 
 func translate(this js.Value, args []js.Value) any {
 	if len(args) < 2 {
-		return "Erreur : argument(s) manquant(s) (input, lang)"
+		return failure("argument(s) manquant(s) (input, lang)")
 	}
 
 	input := args[0].String()
@@ -36,37 +32,28 @@ func translate(this js.Value, args []js.Value) any {
 		for _, e := range errs {
 			errStr += fmt.Sprintf("  %v\n", e)
 		}
-		return fmt.Sprintf("Erreurs de parsing :\n%s", errStr)
+		return failure(fmt.Sprintf("Erreurs de parsing :\n%s", errStr))
 	}
 
 	flow := ir.Lower(prog)
 
-	var generated string
-	var genErr error
-
-	switch lang {
-	case "python":
-		g := python.NewGenerator()
-		generated, genErr = g.Generate(flow)
-	case "go":
-		g := gogen.NewGenerator()
-		generated, genErr = g.Generate(flow)
-	case "js", "javascript":
-		g := jsgen.NewGenerator()
-		generated, genErr = g.Generate(flow)
-	case "java":
-		g := java.NewGenerator()
-		generated, genErr = g.Generate(flow)
-	case "puml", "plantuml":
-		g := plantuml.NewGenerator()
-		generated, genErr = g.Generate(flow)
-	default:
-		return fmt.Sprintf("Langage non supporté : %s", lang)
+	g, ok := gen.Lookup(lang)
+	if !ok {
+		return failure(fmt.Sprintf("Langage non supporté : %s", lang))
 	}
 
+	generated, genErr := g.Generate(flow)
 	if genErr != nil {
-		return fmt.Sprintf("Erreur lors de la génération : %v", genErr)
+		return failure(fmt.Sprintf("Erreur lors de la génération : %v", genErr))
 	}
 
-	return generated
+	return success(generated)
+}
+
+func success(code string) map[string]any {
+	return map[string]any{"ok": true, "code": code, "error": ""}
+}
+
+func failure(message string) map[string]any {
+	return map[string]any{"ok": false, "code": "", "error": message}
 }

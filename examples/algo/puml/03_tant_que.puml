@@ -7,8 +7,6 @@ while (compteur > 0) is (vrai)
 endwhile (faux)
 :Afficher "Décollage !";
 :i = 0;
-:Afficher "i =", i;
-:i++;
 while (i < 3) is (vrai)
 :Afficher "i =", i;
 :i++;

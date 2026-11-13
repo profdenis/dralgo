@@ -1,15 +1,11 @@
 @startuml
 start
-:Afficher "Boucle Pour classique :";
+:Afficher "Boucle Pour classique (converti) :";
 :i = 0;
 while (i < 5) is (vrai)
 :Afficher "Valeur de i :", i;
 :i++;
 endwhile (faux)
-:Afficher "Boucle Pour Chaque :";
-:ma_liste = [10, 20, 30, 40];
-while (ma_liste) is (vrai)
-:Afficher "Element :", element;
-endwhile (faux)
+:Afficher "Pas de boucle Pour Chaque (non supporté) :";
 stop
 @enduml

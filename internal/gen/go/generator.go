@@ -250,7 +250,15 @@ func (g *Generator) exprStr(e ast.Expr) string {
 			// Python generator just uses string(x.Op) which is "**". That's valid Python but not valid Go.
 			return fmt.Sprintf("pow(%s, %s)", g.exprStr(x.LHS), g.exprStr(x.RHS))
 		}
-		return fmt.Sprintf("%s %s %s", g.exprStr(x.LHS), op, g.exprStr(x.RHS))
+		lhs := g.exprStr(x.LHS)
+		if ast.NeedsParens(x.Op, x.LHS, false) {
+			lhs = "(" + lhs + ")"
+		}
+		rhs := g.exprStr(x.RHS)
+		if ast.NeedsParens(x.Op, x.RHS, true) {
+			rhs = "(" + rhs + ")"
+		}
+		return fmt.Sprintf("%s %s %s", lhs, op, rhs)
 	case ast.UnaryExpr:
 		return fmt.Sprintf("%s%s", string(x.Op), g.exprStr(x.X))
 	case ast.ListExpr:

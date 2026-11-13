@@ -7,13 +7,20 @@ Ce document récapitule les commandes nécessaires pour compiler les différente
 Pour compiler la version WebAssembly utilisée dans l'interface web :
 
 ```bash
-GOOS=js GOARCH=wasm go build -o main.wasm cmd/wasm/main.go
-```
-
-Un script utilitaire est également disponible à la racine :
-```bash
 ./build_wasm.sh
 ```
+
+Le script produit dans le dossier `web/` :
+- `main.wasm` : le traducteur compilé pour le navigateur ;
+- `wasm_exec.js` : le runtime Go pour WebAssembly, copié depuis le SDK Go ;
+- `examples.json` : la liste des exemples, générée depuis `examples/algo/*.algo` par `cmd/gen-examples`.
+
+Pour régénérer uniquement la liste des exemples :
+```bash
+go run ./cmd/gen-examples -in examples/algo -o web/examples.json
+```
+
+L'interface web s'ouvre depuis le dossier `web/` (qui contient `index.html`) : il faut servir ce dossier, par exemple avec `python3 -m http.server --directory web`, pour que le chargement de `main.wasm` et `examples.json` fonctionne.
 
 ## 2. Compilation de l'exécutable CLI (dralgo)
 

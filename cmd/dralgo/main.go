@@ -4,18 +4,15 @@ import (
 	"flag"
 	"fmt"
 	"os"
+	"strings"
 
-	gogen "dralgo/internal/gen/go"
-	"dralgo/internal/gen/java"
-	jsgen "dralgo/internal/gen/js"
-	"dralgo/internal/gen/plantuml"
-	"dralgo/internal/gen/python"
+	"dralgo/internal/gen"
 	"dralgo/internal/ir"
 	"dralgo/internal/parser"
 )
 
 func main() {
-	lang := flag.String("lang", "python", "Target language (python, puml)")
+	lang := flag.String("lang", "python", fmt.Sprintf("Target language (%s)", strings.Join(gen.Languages(), ", ")))
 	output := flag.String("o", "", "Output file")
 	flag.Parse()
 
@@ -42,30 +39,13 @@ func main() {
 
 	flow := ir.Lower(prog)
 
-	var generated string
-	var genErr error
-
-	switch *lang {
-	case "python":
-		g := python.NewGenerator()
-		generated, genErr = g.Generate(flow)
-	case "go":
-		g := gogen.NewGenerator()
-		generated, genErr = g.Generate(flow)
-	case "js", "javascript":
-		g := jsgen.NewGenerator()
-		generated, genErr = g.Generate(flow)
-	case "java":
-		g := java.NewGenerator()
-		generated, genErr = g.Generate(flow)
-	case "puml", "plantuml":
-		g := plantuml.NewGenerator()
-		generated, genErr = g.Generate(flow)
-	default:
+	g, ok := gen.Lookup(*lang)
+	if !ok {
 		fmt.Printf("Unsupported language: %s\n", *lang)
 		os.Exit(1)
 	}
 
+	generated, genErr := g.Generate(flow)
 	if genErr != nil {
 		fmt.Printf("Error during code generation: %v\n", genErr)
 		os.Exit(1)

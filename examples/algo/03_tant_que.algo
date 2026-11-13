@@ -10,9 +10,9 @@ Fin Tant Que
 
 Afficher "Décollage !"
 
-// Test Fait ... Tant Que
+// Test Tant Que avec une variable incrémentée
 i = 0
-Fait
+Tant Que i < 3
     Afficher "i =", i
     i++
-Tant Que i < 3
+Fin Tant Que
